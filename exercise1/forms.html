@@ -3,46 +3,47 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Forms</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body class="background-aliceblue">
     <header>
         <nav>
             <h2 class="visuallyhidden">Main Navigation</h2>
-            <ul class="navigation-box">
-                <li class="navigation-item"><a href="index.html" class="navigation-link">Homepage</a></li>
-                <li class="navigation-item"><a href="about.html" class="navigation-link">About</a></li>
-                <li class="navigation-item"><a href="gallery.html" class="navigation-link">Gallery</a></li>
-                <li class="navigation-item"><a href="work.html" class="navigation-link">Work</a></li>
-                <li class="navigation-item"><a href="blog.html" class="navigation-link">Blog</a></li>
-            </ul>
+			<ul class="navigation-box">
+				<li class="navigation-item"><a href="index.html" class="navigation-link purple">Homepage</a></li>
+				<li class="navigation-item"><a href="about.html" class="navigation-link purple">About</a></li>
+				<li class="navigation-item"><a href="gallery.html" class="navigation-link purple">Gallery</a></li>
+				<li class="navigation-item"><a href="work.html" class="navigation-link purple">Work</a></li>
+				<li class="navigation-item"><a href="blog.html" class="navigation-link purple">Blog</a></li>
+				<li class="navigation-item"><a href="forms.html" class="navigation-link purple">Forms</a></li>
+			</ul>
         </nav>
     </header>
 	<h1>Forms:</h1>
 	<form action="http://www.google.com/search" method="GET">
 		<h2>Search Google</h2>
-		<label for="search">Search:</label>
-		<input type="text" id="search" name="q" placeholder="What I'm looking for" />
+		<label for="search" class="form-label georgia">Search:</label>
+		<input type="text" id="search" class="form-input" name="q" placeholder="What I'm looking for" />
 		<button type="submit">Go!</button>
 	</form>
 	<form action="mailto:tome@wix.com?subject=Sent" method="POST">
 		<h2>Contact Form:</h2>
 		<div>
-			<label for="full-name">Full Name:</label>
+			<label for="full-name" class="form-label georgia">Full Name:</label>
 			<select name="title" id="name-title">
 				<option value="Mr">Mr.</option>
 				<option value="Mrs">Mrs.</option>
 				<option value="Miss">Miss</option>
 			</select>
-			<input type="text" id="full-name" name="full-name" placeholder="John Doe" required />
+			<input type="text" id="full-name" class="form-input" name="full-name" placeholder="John Doe" required />
 		</div>
 		<div>
-			<label for="email">Email Address:</label>
-			<input type="email" id="email" name="email" placeholder="john@doe.com" required />
+			<label for="email" class="form-label georgia">Email Address:</label>
+			<input type="email" id="email" class="form-input" name="email" placeholder="john@doe.com" required />
 		</div>
 		<div>
-			<label for="msg">Message:</label>
-			<textarea name="msg" id="msg" cols="30" rows="10">I love you! What an awesome site</textarea>
+			<label for="msg" class="form-label georgia">Message:</label>
+			<textarea name="msg" id="msg" class="form-input" cols="30" rows="10">I love you! What an awesome site</textarea>
 		</div>
 		<div>
 			<button type="submit">Send</button>
@@ -51,7 +52,7 @@
 	<form action="http://SOMEURL">
 		<h2>Search Form:</h2>
 		<div>
-			<label for="select-form-element">Select:</label>
+			<label for="select-form-element" class="form-label georgia">Select:</label>
 			<select name="select" id="select-form-element">
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -60,8 +61,8 @@
 			</select>
 		</div>
 		<div>
-			<label for="browsers">Browser:</label>
-			<input list="browser-list" id="browsers" />
+			<label for="browsers" class="form-label georgia">Browser:</label>
+			<input list="browser-list" id="browsers" class="form-input" />
 			<datalist id="browser-list" name="browser">
 				<option value="Chrome"></option>
 				<option value="Firefox"></option>
@@ -71,15 +72,15 @@
 			</datalist>
 		</div>
 		<div>
-			<label for="favorite-color">Favorite Color:</label>
-            <input type="color" id="favorite-color" name="favorite-color"/>
+			<label for="favorite-color" class="form-label georgia">Favorite Color:</label>
+            <input type="color" id="favorite-color" class="form-input" name="favorite-color"/>
 		</div>
         <div>
-            <label for="birthday">Birthday:</label>
-            <input type="date" id="birthday" name="birthday"/>
+            <label for="birthday" class="form-label georgia">Birthday:</label>
+            <input type="date" id="birthday" class="form-input" name="birthday"/>
         </div>
 		<div>
-			<label for="happiness-meter">Happiness Meter:</label>
+			<label for="happiness-meter" class="form-label georgia">Happiness Meter:</label>
 			<meter id="happiness-meter" min="0" max="100" low="40" high="60" optimum="100" value="100">
 			</meter>
 		</div>
