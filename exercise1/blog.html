@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+	<title>Blog</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body class="background-aliceblue">
+	<h1 class="visuallyhidden">Blog</h1>
+	<header>
+		<nav>
+			<h2 class="visuallyhidden">Main Navigation</h2>
+			<ul class="navigation-box">
+				<li class="navigation-item"><a href="index.html" class="navigation-link">Homepage</a></li>
+				<li class="navigation-item"><a href="about.html" class="navigation-link">About</a></li>
+				<li class="navigation-item"><a href="gallery.html" class="navigation-link">Gallery</a></li>
+				<li class="navigation-item"><a href="work.html" class="navigation-link">Work</a></li>
+				<li class="navigation-item"><a href="blog.html" class="navigation-link">Blog</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section>
+			<h2 class="visuallyhidden">Blog Posts</h2>
+			<article>
+				<h3>Learning New Tricks</h3>
+				<time datetime="2015-06-12 19:00">June 12, 2015</time>
+				<p>
+					At the beginning of this year, I switched my full-time focus in a pretty sizable way. I jumped from an environment where I had at least a bit of expertise and its associated advantages, into one where I had little to no foothold.
+				</p>
+				<p>
+					Switching roles usually means adjusting to a new environment, new coworkers, and new problems to solve—things you might work through in a matter of weeks. But there I was, two, then three months in, and still feeling unadjusted.
+				</p>
+				<p>
+					What I hadn’t realized was that jumping into a completely different side of the industry is disorienting. The new environment was similar enough to the old one that it still triggered my muscle memory, which was largely irrelevant for new tasks. There were only a few skills I could rely on during the transition—the basic workflow, programming principles, and methods of collaboration and feedback were all the same, but that didn’t always help with things like deploying applications to devices natively, or making decisions about how best to implement a platform-specific SDK.
+				</p>
+				<p>
+					One of the biggest advantages of having expertise is understanding and implementing best practices, but they were often the biggest hindrance in learning something new. Applying best practices to a new area of focus from a related-yet-foreign area of expertise was destructive.
+				</p>
+				<p>
+					This was most noticeable in the software architecture decisions I faced. Coming from the world of programming on the web, both server and client side, my mind defaulted to certain patterns of communication between pieces of an application—specifically notifications and callbacks. When sketching out a plan for a feature build, I would sometimes forget about the delegate pattern, which is a pretty heavily-relied upon pattern in Cocoa. In a lot of cases, that was the best fit for the feature in front of me, but my mind was trained otherwise.
+				</p>
+				<p>
+					The other reason knowing best practices was destructive when learning something new: I was constantly focused on making sure what I built adhered to those patterns. That forced me to focus on optimizing a system before I’d even built or understood it. I was prematurely applying structure to something that I wasn’t quite sure even worked yet.
+				</p>
+				<p>
+					I had to get back into beginner mode: make whatever it was I was building actually work, before deliberating on how it should be built. It sounds like an obvious thing, but it takes concentration to restrain yourself like that. The sad irony here is that I should’ve known this from the start. A few months ago I wrote about relying on intelligence rather than knowledge, and that’s how we should operate when learning new skills.
+				</p>
+			</article>
+			<article>
+				<h3>Content Modeling Phases</h3>
+				<time datetime="2015-06-08 18:33">June 8, 2015</time>
+				<section>
+					<h4 class="visuallyhidden">Intro</h4>
+					<p>
+						Most of my projects involve building content models, and I have a deep and abiding love for the process. I like teasing out the patterns and relationships in a big mess of content, then creating a structure that marries development, design, and business needs. I find it very satisfying, like putting together perfect rows in Tetris.
+					</p>
+					<p>
+						I’ve worked on plenty of projects that have issues that warrant the creation of a content model: a client wants more efficient governance workflows, or to reuse pieces of content across channels, or they’re building a responsive site and need a cleaner separation of content and display code. They’ve learned, or been told, that the answer to the mess they’re in lies in a content model. The problem is that a content model isn’t actually an end game. It’s not a solution unto itself.
+					</p>
+					<p>
+						A content model is an organizational tool. Expecting it to solve problems merely by existing is a bit like setting up a new filing cabinet in your office and being surprised when you come back a week later to a desk still covered in piles of receipts.
+					</p>
+					<p>
+						My projects run more smoothly when my stakeholders understand the bigger picture of what’s involved in converting to a new content model, and I’ve started to talk about content modeling as having four phases:
+					</p>
+				</section>
+				<section>
+					<h4>1. Auditing existing content and building the initial models</h4>
+					<p>
+						This is what most of us picture when we think of content modeling. A structural audit is how I learn the shapes and patterns in the content, and I translate that understanding into diagrams and spreadsheets detailing content sections, fields, and relationships.
+					</p>
+				</section>
+				<section>
+					<h4>2. Stress-testing the models</h4>
+					<p>
+						I do two kinds of stress-testing, and both are kind of tedious and extremely important. The first kind involves literally sitting around a table with subject matter experts—representing the needs of the content, business, development, and design teams—and walking through each model. Field by field, section by section, we discuss issues and adjust the model to better meet everyone’s needs. It’s a little arduous, and absolutely necessary. Bring snacks.
+					</p>
+					<p>
+						The second kind of stress-testing is a sample migration of roughly 10 percent of existing content to fit in the new models. The models are built based on a representative subset of real content, but a broader migration pilot project always reveals new issues that need to be addressed. A pilot migration also gives us solid statistics we can use to estimate time and energy needs for the full migration.
+					</p>
+					<p>
+						In a recent project, we had assumed we’d be able to glean the content of a teaser field from the current site, but through the migration test we recognized the need for a copywriter to rewrite most of that information. That same migration pilot also helped us identify which sections could be migrated quickly by any team member, and which sections needed slow, careful attention from a subject matter expert.
+					</p>
+					<p>
+						I think it’s important that this migration pilot is conducted by the team who will be creating and editing content moving forward. This gives them a head start in building their own intrinsic understanding of the content structure, and their insights about places the structure is falling short or is overbuilt are invaluable.
+					</p>
+				</section>
+				<section>
+					<h4>3. CMS implementation</h4>
+					<p>
+						I generally build CMS-agnostic models, meaning that I create fields and relationships in service of the content, without regard to how difficult those choices will be to implement in any particular CMS. Bully for me, but once a CMS is chosen, we’re all boarding the express train to Compromise City. During this phase I work closely with developers to make adjustments so the models can still do their jobs within the confines of the CMS’s capabilities.
+					</p>
+					<p>
+						This phase also involves building customized help and content guidelines directly into the CMS interface, because that is my jam.
+					</p>
+				</section>
+				<section>
+					<h4>4. Getting the content into the CMS</h4>
+					<p>
+						This is the dirty secret of content modeling: someone actually has to move all the content from those dusty receipt piles into its new tidy home in the filing system. There are some nifty advances being made around extracting data using algorithms, but for now this work needs to be done by people. Given my druthers, I like to have the team move existing content directly into the models in the new CMS, which familiarizes the team with the new interface and helps us find places we could improve the authoring experience on their behalf.
+					</p>
+					<p>
+						Having the team move old content directly into the new CMS is not always a realistic plan, because of scheduling and timing, and other complexities. So often we do half-measures, having the team move content into spreadsheets and then auto-importing those to the CMS, or hiring interns to do the bulk of the migration labor. This phase can take a long time, but content migration is a really great way for everyone to get familiar with the CMS administration and workflows long before launch.
+					</p>
+				</section>
+				<section>
+					<h4>5. Shampoo, rinse, repeat</h4>
+					<p>
+						I lied. I said “four phases,” but after those four are complete, the final, endless phase is maintenance, iteration, and improvement. In the same way we promote doing regular content, performance, and code audits, we should also work with our teams to do regular content model audits, reviewing the fields and relationships to make sure they’re still aligned with design, development, and business needs.
+		
+					</p>
+					<p>
+						I would love to be able to sketch out a content model, quietly close my laptop, and come back the next morning to find all the content humming along in a new and beautifully flexible CMS implementation. For the record, I would also like a mini-donk. Even without magical content gnomes (or tiny equines), recognizing the distinct phases of modeling work has helped my projects run more smoothly. I’m better at getting the right people at the table for the right discussions, and budgeting appropriate energy and time across the entire project. Talking about the phases also helps my stakeholders understand the larger picture of a long-haul content modeling initiative, and helps all of us make decisions that move us closer to meeting our business and content goals.
+					</p>
+				</section>
+			</article>
+		</section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.georgia {
+    font-family: Georgia, serif;
+}
+
+.cursive {
+    font-family: cursive, sans-serif;
+}
+
+.sans-serif {
+    font-family: sans-serif;
+}
+
+.times-new-roman {
+    font-family: "Times New Roman", serif;
+}
+
+.large {
+    font-size: 40px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
+}

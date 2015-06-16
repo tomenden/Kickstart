@@ -1,0 +1,89 @@
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    margin-bottom: -4px;
+}
+
+.navigation-box {
+    padding: 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.navigation-item {
+    display: inline-block;
+    border-right: 1px blue solid;
+}
+
+.navigation-link {
+    margin: 2px;
+    padding-right: 4px;
+
+}
+
+.quote-box {
+    border-left: 8px #DBE solid;
+    padding-left: 10px;
+    width: 500px;
+    margin: 15px auto 15px auto;
+}
+
+
+.simple-quote:before {
+    display: block;
+    height: 15px;
+    margin-left: -40px;
+    content: open-quote;
+    font-size: 40px;
+}
+
+.simple-cite {
+    display: block;
+    margin-top: 10px;
+}
+
+.simple-cite:before {
+    content: "-";
+}
+
+.figure-box-bordered {
+    display: inline-block;
+    margin: 30px;
+    border: 1px solid #663399;
+}
+
+.figcaption-centered {
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.gallery {
+    padding-left: 20px;
+}
+
+.gallery li {
+    display: inline-block;
+}
