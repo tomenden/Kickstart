@@ -106,3 +106,36 @@ img {
 .form-input {
     margin-bottom: 10px;
 }
+
+.blog-sidebar {
+    position: fixed;
+    background: black;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 20%;
+}
+
+.blog-sidebar-item {
+    margin-bottom: 20px;
+}
+
+.blog-sidebar-item:hover {
+    background: gray;
+}
+
+.blog-post {
+    max-width: 80%;
+}
+
+.page {
+    display: none;
+}
+
+#radio2:checked ~ .page2 {
+    display: block;
+}
+
+#radio1:checked ~ .page1 {
+    display: block;
+}

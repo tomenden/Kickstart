@@ -18,6 +18,10 @@
     font-size: 40px;
 }
 
+.medium {
+    font-size: 30px;
+}
+
 .italic {
     font-style: italic;
 }
