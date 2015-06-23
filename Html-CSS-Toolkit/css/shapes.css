@@ -1,0 +1,17 @@
+.no-bullet-list {
+    list-style-type: none;
+}
+
+.fixed-box {
+    width: 100vw;
+    height: 10vh;
+}
+
+.padded-box {
+    padding: 2em;
+}
+
+.figure-box {
+    margin-left: 0;
+    border: 2px solid;
+}

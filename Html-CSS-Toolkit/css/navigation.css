@@ -1,0 +1,39 @@
+.site-title {
+    display: inline-block;
+    margin: 0;
+}
+nav {
+    display: inline-block;
+}
+
+.menu {
+    text-align: center;
+    display: inline-block;
+}
+
+.menu-item {
+    display: inline-block;
+    padding: 0.2rem;
+    border-right: 0.1rem solid #E6F9AF;
+}
+
+.menu-item:last-child {
+    border-right: 0;
+}
+
+.logo {
+    display: none;
+}
+
+@media screen and (min-width: 500px) {
+    .menu {
+        padding-left: 0;
+    }
+    .logo {
+        display: inline-block;
+        height: 1.5rem;
+        position: relative;
+        top: 0.3rem;
+    }
+}
+

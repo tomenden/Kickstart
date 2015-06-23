@@ -1,0 +1,60 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 10vh;
+}
+
+header {
+    text-align: center;
+}
+
+.fixed-box {
+    position: fixed;
+    top: 0;
+}
+/*
+    mobile-accordion blocks
+*/
+.subject {
+    text-align: center;
+    margin: 0;
+    border: 2px dotted;
+}
+
+.accordion-block {
+    display: none;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input:checked  + label + .accordion-block {
+    display: block;
+    width: 100vw;
+}
+/* Media-query for accordion block*/
+@media screen and (min-width: 600px) {
+    .subject {
+        /*text-align: left;*/
+        border: 0;
+    }
+
+    .accordion-block {
+            display: block;
+            /*width: 100vw;*/
+        }
+}
+
+/*
+
+*/
+
+.figure-box img {
+    max-width: 100%;
+    padding-left: 0;
+}
