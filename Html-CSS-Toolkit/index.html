@@ -23,6 +23,7 @@
 
 <main>
     <h1 class="center-text">The Basics</h1>
+
     <article class="article-block">
         <input type="checkbox" id="box-model"/>
         <label for="box-model">
@@ -36,7 +37,8 @@
                     <figure class="figure-box center-text">
                         <img src="http://adamschwartz.co/magic-of-css/chapters/1-the-box/images/box-model.svg"
                              alt="The Box Model"/>
-                        <figcaption class="padded-box caption-background border-top">A picture of the box model</figcaption>
+                        <figcaption class="padded-box caption-background border-top">A picture of the box model
+                        </figcaption>
                     </figure>
                     <p>But that doesn't mean it has to look like a rectangle, or behave like one!</p>
                 </article>
@@ -57,17 +59,22 @@
         <label for="box-sizing">
             <h1 class="subject">Box Sizing</h1>
         </label>
+
         <div class="accordion-block">
             <section class="theory">
                 <article class="theory">
                     <p>Box Sizing can get confusing</p>
-                    <figure class="figure-box">
-                        <figcaption class="padded-box caption-background border-top">This box is 200px high * 200px width</figcaption>
-                        <div>A 200*200 box will be here</div>
+                    <figure class="figure-box center-text">
+                        <figcaption class="padded-box caption-background border-top">This box is 200px high * 200px
+                            width
+                        </figcaption>
+                        <div class="simple-box centered-div-with-vertical-margins"></div>
                     </figure>
-                    <figure class="figure-box">
-                        <figcaption class="padded-box center-text caption-background border-top">Now this is the same box, with some padding and borders</figcaption>
-                        <div>A 200*200 box with padding and border</div>
+                    <figure class="figure-box center-text">
+                        <figcaption class="padded-box center-text caption-background border-top">Now this is the same
+                            box, with some padding and borders
+                        </figcaption>
+                        <div class="simple-box bordered-box padded-box content-box centered-div-with-vertical-margins">A 200*200 box with padding and border</div>
                     </figure>
                 </article>
                 <section class="practice">
@@ -76,8 +83,9 @@
 
                         <p>Let's fix that! <strong>Box-Sizing to the rescue</strong></p>
                         <figure class="figure-box">
-                            <figcaption class="padded-box center-text caption-background border-top"><code>Box-Sizing: border-box;</code></figcaption>
-                            <div>A 200*200 border-box with border and padding</div>
+                            <figcaption class="padded-box center-text caption-background border-top"><code>Box-Sizing:
+                                border-box;</code></figcaption>
+                            <div class="simple-box bordered-box padded-box centered-div-with-vertical-margins"></div>
                         </figure>
                     </article>
                 </section>
