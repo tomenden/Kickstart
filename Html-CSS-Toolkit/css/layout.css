@@ -40,19 +40,39 @@ input:checked  + label + .accordion-block {
 /* Media-query for accordion block*/
 @media screen and (min-width: 600px) {
     .subject {
-        /*text-align: left;*/
         border: 0;
     }
 
     .accordion-block {
             display: block;
-            /*width: 100vw;*/
         }
 }
 
 /*
 
 */
+
+/* Two column design */
+
+@media screen and (min-width: 800px) {
+    input:checked  + label + .accordion-block {
+        width: 100%; /* Disable the checkbox behavior */
+    }
+
+    .article-block {
+        display: inline-block;
+        width: 49%;
+        vertical-align: top;
+    }
+
+    .article-block:nth-of-type(odd) {
+        float: left;
+    }
+
+    .article-block:nth-of-type(even) {
+        float: right;
+    }
+}
 
 .figure-box img {
     max-width: 100%;
