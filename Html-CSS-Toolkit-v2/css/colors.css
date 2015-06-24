@@ -1,5 +1,5 @@
 .main-background {
-    background: #D0EFB1;
+    background: #046380;
 }
 
 .header-background {
@@ -21,7 +21,7 @@
 }
 
 .caption-background {
-    background: #DDD5D0;
+    background: #046380;
 }
 
 .subject {
@@ -29,6 +29,25 @@
 }
 
 .main-container-turquoise {
-    background: #00ffff;
+    background: #EFECCA;
 }
 
+.article-block {
+    background: #D6D0FA;
+}
+
+.shape-background {
+    background: #D6D0FA;
+}
+
+.triangle {
+    color: #D6D0FA;
+}
+
+.simple-box {
+    background: #D6D0FA;
+}
+
+.white {
+    color: rgba(256, 256, 256, 0.95);
+}

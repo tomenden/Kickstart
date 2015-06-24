@@ -28,14 +28,14 @@
         <article class="article-block">
             <h1 class="subject">The Box Model</h1>
 
-            <div class="accordion-block">
+            <div class="topic-block">
                 <section>
                     <article>
                         <p>Essentially, everything is a rectangle</p>
                         <figure class="figure-box center-text">
                             <img src="http://adamschwartz.co/magic-of-css/chapters/1-the-box/images/box-model.svg"
                                  alt="The Box Model"/>
-                            <figcaption class="padded-box caption-background border-top">A picture of the box model
+                            <figcaption class="padded-box caption-background border-top white">A picture of the box model
                             </figcaption>
                         </figure>
                         <p>But that doesn't mean it has to look like a rectangle, or behave like one!</p>
@@ -44,10 +44,15 @@
 
                 <section>
                     <article>
-                        <div class="shape-demo circle"><p>Circle</p></div>
-                        <div class="shape-demo oval"></div>
-                        <div class="shape-demo triangle"></div>
-                        <div class="shape-demo eye"></div>
+                        <figure class="figure-box center-text">
+                            <div class="shape-box">
+                                <div class="shape-demo shape-background circle"><p>Circle</p></div>
+                                <div class="shape-demo shape-background oval"></div>
+                                <div class="shape-demo shape-background triangle "></div>
+                                <div class="shape-demo shape-background eye"></div>
+                            </div>
+                            <figcaption class="padded-box caption-background border-top white">All of these are boxes, too!</figcaption>
+                        </figure>
                     </article>
                 </section>
             </div>
@@ -61,13 +66,13 @@
                     <article class="theory">
                         <p>Box Sizing can get confusing</p>
                         <figure class="figure-box center-text">
-                            <figcaption class="padded-box caption-background border-top">This box is 200px high * 200px
+                            <figcaption class="padded-box caption-background border-top white">This box is 200px high * 200px
                                 width
                             </figcaption>
                             <div class="simple-box centered-div-with-vertical-margins"></div>
                         </figure>
                         <figure class="figure-box center-text">
-                            <figcaption class="padded-box center-text caption-background border-top">Now this is the
+                            <figcaption class="padded-box center-text caption-background border-top white">Now this is the
                                 same
                                 box, with some padding and borders
                             </figcaption>
@@ -83,7 +88,7 @@
 
                             <p>Let's fix that! <strong>Box-Sizing to the rescue</strong></p>
                             <figure class="figure-box">
-                                <figcaption class="padded-box center-text caption-background border-top"><code>Box-Sizing:
+                                <figcaption class="padded-box center-text caption-background border-top white"><code>Box-Sizing:
                                     border-box;</code></figcaption>
                                 <div class="simple-box bordered-box padded-box centered-div-with-vertical-margins"></div>
                             </figure>

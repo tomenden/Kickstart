@@ -1,6 +1,7 @@
 
 .no-bullet-list {
     list-style-type: none;
+    padding: 0;
 }
 
 .fixed-box {
@@ -20,10 +21,8 @@
 .shape-demo {
     height: 12.5rem;
     width: 12.5rem;
-    border: 1px solid;
-    /* TODO: remove color from here */
-    background: limegreen;
-    margin: 0.5rem;
+    /*background: limegreen;*/
+    /*margin: 0.5rem;*/
 }
 
 .circle {
@@ -46,7 +45,7 @@
     border: 0;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
-    border-bottom: 100px solid limegreen;
+    border-bottom: 100px solid currentColor;
 }
 
 .eye {
@@ -82,7 +81,6 @@
 .simple-box {
     height: 12.5rem;
     width: 12.5rem;
-    background: #0ff;
 }
 
 .content-box {

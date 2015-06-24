@@ -5,13 +5,11 @@
 }
 
 .site-header {
-    /*text-align: center;*/
-    /*vertical-align: middle;*/
     padding: 1rem;
+    z-index: 1;
 }
 
 .main-container {
-    /*margin-top: 15vh;*/
     margin: 10rem 5rem;
     padding: 2rem;
 
@@ -30,91 +28,69 @@
     position: fixed;
     top: 0;
 }
-/*
-    mobile-accordion blocks
-*/
+
 .subject {
     text-align: center;
     margin: 0;
     border: 2px dotted;
 }
 
-/*.accordion-block {*/
-    /*display: none;*/
-/*}*/
-
-/*input[type=checkbox] {*/
-    /*display: none;*/
-/*}*/
-
-/*input:checked  + label + .accordion-block {*/
-    /*display: block;*/
-    /*width: 100vw;*/
-/*}*/
-/* Media-query for accordion block*/
-/*@media screen and (min-width: 600px) {*/
-    /*.subject {*/
-        /*border: 0;*/
-    /*}*/
-
-    /*.accordion-block {*/
-            /*display: block;*/
-        /*}*/
-/*}*/
-
-/*
-
-*/
-
-/* Two column design */
-
-/*@media screen and (min-width: 800px) {*/
-    /*input:checked  + label + .accordion-block {*/
-        /*width: 100%; /!* Disable the checkbox behavior *!/*/
-    /*}*/
-
-    /*.article-block {*/
-        /*display: inline-block;*/
-        /*width: 49%;*/
-        /*vertical-align: top;*/
-    /*}*/
-
-    /*.article-block:nth-of-type(odd) {*/
-        /*float: left;*/
-    /*}*/
-
-    /*.article-block:nth-of-type(even) {*/
-        /*float: right;*/
-    /*}*/
-/*}*/
-
 .figure-box img {
     max-width: 100%;
     padding-left: 0;
 }
 
-.inline-block {
+@media screen and (max-width: 1370px) {
+    .article-block {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .site-title {
+        display: block;
+        position: static;
+        text-align: center;
+        margin: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-container {
+        margin: 7rem 0;
+    }
+}
+
+@media  screen and (max-width: 425px) {
+    .menu {
+        display: inline;
+        margin-left: -6px;
+    }
+}
+
+.shape-demo {
     display: inline-block;
+    vertical-align: middle;
+    margin: 1rem;
+    border: 1px solid;
 }
 
-.gallery-article-block {
-    width: 100%;
+.shape-box {
+    padding: 3rem;
 }
 
-.gallery-block {
-    display: none;
+@media screen and (max-width: 1663px) {
+    .shape-box {
+        padding: 0;
+    }
 }
 
-/*input[type=checkbox]:checked + label + .gallery-block {*/
-    /*display: block;*/
-/*}*/
-
-/*@media screen and (min-width: 600px) {*/
-    /*.gallery-block {*/
-        /*display: block;*/
-    /*}*/
-/*}*/
-
-.overflow-hidden {
-    overflow: hidden;
+@media screen and (max-width: 1458px) and (min-width: 1350px) {
+    .shape-box {
+        padding: 3rem;
+    }
+    .shape-demo {
+        display: block;
+    }
 }
