@@ -1,0 +1,120 @@
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.site-header {
+    /*text-align: center;*/
+    /*vertical-align: middle;*/
+    padding: 1rem;
+}
+
+.main-container {
+    /*margin-top: 15vh;*/
+    margin: 10rem 5rem;
+    padding: 2rem;
+
+}
+
+.article-block {
+    padding: 2rem;
+    border: 2px solid;
+    margin: 1rem;
+    display: inline-block;
+    vertical-align: top;
+    width: 47%;
+}
+
+.fixed-box {
+    position: fixed;
+    top: 0;
+}
+/*
+    mobile-accordion blocks
+*/
+.subject {
+    text-align: center;
+    margin: 0;
+    border: 2px dotted;
+}
+
+/*.accordion-block {*/
+    /*display: none;*/
+/*}*/
+
+/*input[type=checkbox] {*/
+    /*display: none;*/
+/*}*/
+
+/*input:checked  + label + .accordion-block {*/
+    /*display: block;*/
+    /*width: 100vw;*/
+/*}*/
+/* Media-query for accordion block*/
+/*@media screen and (min-width: 600px) {*/
+    /*.subject {*/
+        /*border: 0;*/
+    /*}*/
+
+    /*.accordion-block {*/
+            /*display: block;*/
+        /*}*/
+/*}*/
+
+/*
+
+*/
+
+/* Two column design */
+
+/*@media screen and (min-width: 800px) {*/
+    /*input:checked  + label + .accordion-block {*/
+        /*width: 100%; /!* Disable the checkbox behavior *!/*/
+    /*}*/
+
+    /*.article-block {*/
+        /*display: inline-block;*/
+        /*width: 49%;*/
+        /*vertical-align: top;*/
+    /*}*/
+
+    /*.article-block:nth-of-type(odd) {*/
+        /*float: left;*/
+    /*}*/
+
+    /*.article-block:nth-of-type(even) {*/
+        /*float: right;*/
+    /*}*/
+/*}*/
+
+.figure-box img {
+    max-width: 100%;
+    padding-left: 0;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.gallery-article-block {
+    width: 100%;
+}
+
+.gallery-block {
+    display: none;
+}
+
+/*input[type=checkbox]:checked + label + .gallery-block {*/
+    /*display: block;*/
+/*}*/
+
+/*@media screen and (min-width: 600px) {*/
+    /*.gallery-block {*/
+        /*display: block;*/
+    /*}*/
+/*}*/
+
+.overflow-hidden {
+    overflow: hidden;
+}

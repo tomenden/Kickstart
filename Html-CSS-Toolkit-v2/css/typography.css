@@ -1,0 +1,11 @@
+.menu-item > a {
+    text-decoration: none;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.border-top {
+    border-top: 2px solid;
+}

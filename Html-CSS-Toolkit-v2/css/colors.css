@@ -1,0 +1,34 @@
+.main-background {
+    background: #D0EFB1;
+}
+
+.header-background {
+    background: #4D7298;
+}
+
+.menu-item > a {
+    color: #fff;
+}
+
+
+.menu-item > a:hover {
+    /* TODO: Replace with Hex color*/
+    color: orange;
+}
+
+.figure-box {
+    background: #FAF3DD;
+}
+
+.caption-background {
+    background: #DDD5D0;
+}
+
+.subject {
+    background: #9DC3C2;
+}
+
+.main-container-turquoise {
+    background: #00ffff;
+}
+
