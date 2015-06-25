@@ -53,6 +53,12 @@
     border: 2rem;
 }
 
+@media screen and (max-width: 460px) {
+    .content-box {
+        padding: 2.2rem;
+    }
+}
+
 .bordered-box {
     border: 0.4rem solid;
 }
