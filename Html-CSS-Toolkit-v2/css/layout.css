@@ -141,6 +141,12 @@
     width: 20rem;
 }
 
+@media screen and (max-width: 430px) {
+    .input-area {
+        width: 18rem;
+    }
+}
+
 .input-area > select {
     width: 25%;
 }
