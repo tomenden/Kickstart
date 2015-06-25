@@ -101,3 +101,7 @@
 .no-border {
     border: 0;
 }
+
+.form-button {
+    border: 0;
+}
