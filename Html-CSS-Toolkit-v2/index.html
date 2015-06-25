@@ -3,6 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
+    <!-- Google Fonts - Source Sans Pro-->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css"/>
     <title>My Html & CSS Toolkit - June, 2015</title>
 </head>
@@ -16,87 +18,67 @@
             <li class="menu-item"><a href="index.html">Basics</a></li>
             <li class="menu-item"><a href="forms.html">Forms</a></li>
             <li class="menu-item"><a href="gallery.html">Gallery</a></li>
-            <li class="menu-item"><a href="transitions-shadows.html">Transitions & Shadows</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
-    <div class="main-container main-container-turquoise">
-        <h2 class="center-text">The Basics</h2>
+    <div class="main-container">
+        <h2 class="page-title center-text">The Basics</h2>
 
-        <article class="article-block">
-            <h1 class="subject">The Box Model</h1>
+        <section class="article-block">
+            <h3 class="subject">The Box Model</h3>
 
-            <div class="topic-block">
-                <section>
-                    <article>
-                        <p>Essentially, everything is a rectangle</p>
-                        <figure class="figure-box center-text">
-                            <img src="http://adamschwartz.co/magic-of-css/chapters/1-the-box/images/box-model.svg"
-                                 alt="The Box Model"/>
-                            <figcaption class="padded-box caption-background border-top white">A picture of the box model
-                            </figcaption>
-                        </figure>
-                        <p>But that doesn't mean it has to look like a rectangle, or behave like one!</p>
-                    </article>
-                </section>
+            <p>Essentially, everything is a rectangle</p>
+            <figure class="figure-box center-text pad-top">
+                <img src="http://adamschwartz.co/magic-of-css/chapters/1-the-box/images/box-model.svg"
+                     alt="The Box Model"/>
+                <figcaption class="padded-box caption-background white">A picture of the box model
+                </figcaption>
+            </figure>
+            <p>But that doesn't mean it has to look like a rectangle, or behave like one!</p>
 
-                <section>
-                    <article>
-                        <figure class="figure-box center-text">
-                            <div class="shape-box">
-                                <div class="shape-demo shape-background circle"><p>Circle</p></div>
-                                <div class="shape-demo shape-background oval"></div>
-                                <div class="shape-demo shape-background triangle "></div>
-                                <div class="shape-demo shape-background eye"></div>
-                            </div>
-                            <figcaption class="padded-box caption-background border-top white">All of these are boxes, too!</figcaption>
-                        </figure>
-                    </article>
-                </section>
-            </div>
-        </article>
+            <figure class="figure-box center-text pad-top">
+                <div class="shape-box">
+                    <div class="shape-demo shape-background circle"><p>Circle</p></div>
+                    <div class="shape-demo shape-background oval"></div>
+                    <div class="shape-demo shape-background triangle "></div>
+                    <!--<div class="shape-demo shape-background eye"></div>-->
+                </div>
+                <figcaption class="padded-box caption-background white">All of these are boxes, too!
+                </figcaption>
+            </figure>
+        </section>
 
-        <article class="article-block">
-            <h1 class="subject">Box Sizing</h1>
+        <section class="article-block">
+            <h3 class="subject">Box Sizing</h3>
 
-            <div class="accordion-block">
-                <section class="theory">
-                    <article class="theory">
-                        <p>Box Sizing can get confusing</p>
-                        <figure class="figure-box center-text">
-                            <figcaption class="padded-box caption-background border-top white">This box is 200px high * 200px
-                                width
-                            </figcaption>
-                            <div class="simple-box centered-div-with-vertical-margins"></div>
-                        </figure>
-                        <figure class="figure-box center-text">
-                            <figcaption class="padded-box center-text caption-background border-top white">Now this is the
-                                same
-                                box, with some padding and borders
-                            </figcaption>
-                            <div class="simple-box bordered-box padded-box content-box centered-div-with-vertical-margins">
-                                A
-                                200*200 box with padding and border
-                            </div>
-                        </figure>
-                    </article>
-                    <section class="practice">
-                        <article class="practice">
-                            <p>Notice how the width and height grew?</p>
+            <p>Box Sizing can get confusing</p>
+            <figure class="figure-box center-text pad-bottom">
+                <figcaption class="padded-box caption-background white">This box is 200px high * 200px
+                    width
+                </figcaption>
+                <div class="shape-demo shape-background centered-div-with-vertical-margins"></div>
+            </figure>
+            <figure class="figure-box center-text pad-bottom">
+                <figcaption class="padded-box center-text caption-background white">Now this is the
+                    same
+                    box, with some padding and borders
+                </figcaption>
+                <div class="shape-demo shape-background bordered-box padded-box content-box centered-div-with-vertical-margins">
+                    A
+                    200*200 box with padding and border
+                </div>
+            </figure>
+            <p>Notice how the width and height grew?</p>
 
-                            <p>Let's fix that! <strong>Box-Sizing to the rescue</strong></p>
-                            <figure class="figure-box">
-                                <figcaption class="padded-box center-text caption-background border-top white"><code>Box-Sizing:
-                                    border-box;</code></figcaption>
-                                <div class="simple-box bordered-box padded-box centered-div-with-vertical-margins"></div>
-                            </figure>
-                        </article>
-                    </section>
-                </section>
-            </div>
-        </article>
+            <p>Let's fix that! <strong>Box-Sizing to the rescue</strong></p>
+            <figure class="figure-box pad-bottom center-text">
+                <figcaption class="padded-box center-text caption-background white"><code>Box-Sizing:
+                    border-box;</code></figcaption>
+                <div class="shape-demo shape-background bordered-box padded-box content-box centered-div-with-vertical-margins"></div>
+            </figure>
+        </section>
     </div>
 
 </main>

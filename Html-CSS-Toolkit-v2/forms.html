@@ -3,6 +3,8 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
+    <!-- Google Fonts - Source Sans Pro-->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css"/>
     <title>My Html & CSS Toolkit - June, 2015</title>
 </head>
@@ -16,7 +18,6 @@
             <li class="menu-item"><a href="index.html">Basics</a></li>
             <li class="menu-item"><a href="forms.html">Forms</a></li>
             <li class="menu-item"><a href="gallery.html">Gallery</a></li>
-            <li class="menu-item"><a href="transitions-shadows.html">Transitions & Shadows</a></li>
         </ul>
     </nav>
 </header>
@@ -24,66 +25,48 @@
 
 <main>
     <div class="main-container main-container-turquoise">
-        <h1 class="center-text">Forms</h1>
+        <h2 class="center-text">Forms</h2>
 
-        <article class="article-block">
-            <h1 class="subject">Contact Form</h1>
+        <section class="article-block">
+            <h3 class="subject">Contact Form</h3>
 
-            <div class="accordion-block">
-                <section>
-                    <article>
-                        <h1>Send me an email</h1>
+            <form action="mailto:tome@wix.com?subject=Sent" method="POST">
+                <h2>Contact Form:</h2>
 
-                        <form action="mailto:tome@wix.com?subject=Sent" method="POST">
-                            <h2>Contact Form:</h2>
-
-                            <div>
-                                <label for="full-name" class="form-label georgia">Full Name:</label>
-                                <select name="title" id="name-title">
-                                    <option value="Mr">Mr.</option>
-                                    <option value="Mrs">Mrs.</option>
-                                    <option value="Miss">Miss</option>
-                                </select>
-                                <input type="text" id="full-name" class="" name="full-name" placeholder="John Doe"
-                                       required/>
-                            </div>
-                            <div>
-                                <label for="email" class="">Email Address:</label>
-                                <input type="email" id="email" class="" name="email" placeholder="john@doe.com"
-                                       required/>
-                            </div>
-                            <div>
-                                <label for="msg" class="">Message:</label>
+                <div>
+                    <label for="full-name" class="form-label georgia">Full Name:</label>
+                    <select name="title" id="name-title">
+                        <option value="Mr">Mr.</option>
+                        <option value="Mrs">Mrs.</option>
+                        <option value="Miss">Miss</option>
+                    </select>
+                    <input type="text" id="full-name" class="" name="full-name" placeholder="John Doe"
+                           required/>
+                </div>
+                <div>
+                    <label for="email" class="">Email Address:</label>
+                    <input type="email" id="email" class="" name="email" placeholder="john@doe.com"
+                           required/>
+                </div>
+                <div>
+                    <label for="msg" class="">Message:</label>
                             <textarea name="msg" id="msg" class="" cols="30"
                                       rows="10">I love you! What an awesome site</textarea>
-                            </div>
-                            <div>
-                                <button type="submit">Send</button>
-                            </div>
-                        </form>
+                </div>
+                <div>
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+        </section>
 
-                    </article>
-                </section>
-            </div>
+        <section class="article-block">
+            <h3 class="subject">Search Google</h3>
 
-        </article>
-
-        <article class="article-block">
-            <h1 class="subject">Search</h1>
-
-            <div class="accordion-block">
-                <section>
-                    <article>
-                        <h1>Search Google</h1>
-
-                        <form action="http://www.google.com/search" method="get" target="_blank">
-                            <input type="search" id="google-search" name="q" placeholder="What Are you looking for?"/>
-                            <button type="submit">Search!</button>
-                        </form>
-                    </article>
-                </section>
-            </div>
-        </article>
+            <form action="http://www.google.com/search" method="get" target="_blank">
+                <input type="search" id="google-search" name="q" placeholder="What Are you looking for?"/>
+                <button type="submit">Search!</button>
+            </form>
+        </section>
     </div>
 </main>
 </body>
