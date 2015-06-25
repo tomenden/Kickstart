@@ -36,17 +36,18 @@
                 <figcaption class="padded-box caption-background white">A picture of the box model
                 </figcaption>
             </figure>
-            <p>But that doesn't mean it has to look like a rectangle, or behave like one!</p>
 
+            <p>But that doesn't mean it has to look like a rectangle, or behave like one!</p>
             <figure class="figure-box center-text pad-top">
+
                 <div class="shape-box">
                     <div class="shape-demo shape-background circle"><p>Circle</p></div>
                     <div class="shape-demo shape-background oval"></div>
                     <div class="shape-demo shape-background triangle "></div>
-                    <!--<div class="shape-demo shape-background eye"></div>-->
                 </div>
-                <figcaption class="padded-box caption-background white">All of these are boxes, too!
-                </figcaption>
+
+                <figcaption class="padded-box caption-background white">All of these are boxes, too!</figcaption>
+
             </figure>
         </section>
 
@@ -55,17 +56,18 @@
 
             <p>Box Sizing can get confusing</p>
             <figure class="figure-box center-text pad-bottom">
-                <figcaption class="padded-box caption-background white">This box is 200px high * 200px
-                    width
+
+                <figcaption class="padded-box caption-background white">This box is 200px high * 200px width
                 </figcaption>
-                <div class="shape-demo shape-background centered-div-with-vertical-margins"></div>
+                <div class="shape-demo no-border"></div>
             </figure>
-            <figure class="figure-box center-text pad-bottom">
-                <figcaption class="padded-box center-text caption-background white">Now this is the
+
+            <figure class="figure-box center-text pad-bottom content-box-demo padded-box">
+                <figcaption class="padded-box caption-background white">Now this is the
                     same
                     box, with some padding and borders
                 </figcaption>
-                <div class="shape-demo shape-background bordered-box padded-box content-box centered-div-with-vertical-margins">
+                <div class="shape-demo shape-background bordered-box padded-box content-box">
                     A
                     200*200 box with padding and border
                 </div>
@@ -76,7 +78,7 @@
             <figure class="figure-box pad-bottom center-text">
                 <figcaption class="padded-box center-text caption-background white"><code>Box-Sizing:
                     border-box;</code></figcaption>
-                <div class="shape-demo shape-background bordered-box padded-box content-box centered-div-with-vertical-margins"></div>
+                <div class="shape-demo shape-background bordered-box padded-box"></div>
             </figure>
         </section>
     </div>

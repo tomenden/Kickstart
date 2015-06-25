@@ -45,14 +45,12 @@
     border-bottom: 100px solid currentColor;
 }
 
-.centered-div-with-vertical-margins {
-    margin: 0.5rem auto;
-}
-
 .content-box {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
+    padding: 4rem;
+    border: 2rem;
 }
 
 .bordered-box {
@@ -98,4 +96,8 @@
     width: 10rem;
     border-color: transparent;
     background: rgba(188, 224, 238, 1);
+}
+
+.no-border {
+    border: 0;
 }
