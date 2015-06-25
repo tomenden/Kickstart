@@ -10,17 +10,22 @@
 }
 
 .padded-box {
-    padding: 2em;
+    padding: 0.2rem;
 }
 
 .figure-box {
-    margin-left: 0;
-    border: 2px solid;
+    /*margin-left: 0;*/
+    /*border: 2px solid;*/
 }
 
 .shape-demo {
     height: 12.5rem;
     width: 12.5rem;
+    -webkit-transition: all 1.8s;
+    -moz-transition: all 1.8s;
+    -ms-transition: all 1.8s;
+    -o-transition: all 1.8s;
+    transition: all 1.8s;
     /*background: limegreen;*/
     /*margin: 0.5rem;*/
 }
@@ -111,3 +116,23 @@
 .img {
     max-width: 100%;
 }
+
+.circle:hover,
+.oval:hover
+{
+    border-radius: 0;
+    background: linear-gradient(45deg, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%);
+}
+
+.triangle:hover:before {
+    content: '';
+    display: block;
+}
+
+.triangle:hover {
+    height: 10rem;
+    width: 10rem;
+    border-color: transparent;
+    background: linear-gradient(45deg, rgba(179,220,237,1) 0%,rgba(41,184,229,1) 50%,rgba(188,224,238,1) 100%);
+}
+

@@ -17,7 +17,7 @@
 
 .article-block {
     padding: 2rem;
-    border: 2px solid;
+    border: solid 1px #ccc;
     margin: 1rem;
     display: inline-block;
     vertical-align: top;
@@ -30,9 +30,22 @@
 }
 
 .subject {
-    text-align: center;
+    /*text-align: center;*/
     margin: 0;
-    border: 2px dotted;
+    /*border: 2px dotted;*/
+}
+
+.pad-bottom {
+    padding-bottom: 1rem;
+}
+
+.pad-top {
+    padding-top: 1rem;
+}
+
+.figure-box {
+    /*padding-bottom: 1rem;*/
+    margin-left: 0;
 }
 
 .figure-box img {
@@ -54,6 +67,10 @@
         text-align: center;
         margin: 0.5rem;
     }
+
+    .menu {
+        margin-top: 0;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -62,10 +79,11 @@
     }
 }
 
-@media  screen and (max-width: 425px) {
+@media screen and (max-width: 425px) {
     .menu {
         display: inline;
         margin-left: -6px;
+        /*margin-top: 0;*/
     }
 }
 
@@ -76,21 +94,26 @@
     border: 1px solid;
 }
 
-.shape-box {
-    padding: 3rem;
-}
+/*.shape-box {*/
+    /*padding: 3rem;*/
+/*}*/
 
 @media screen and (max-width: 1663px) {
-    .shape-box {
-        padding: 0;
-    }
+    /*.shape-box {*/
+        /*padding: 0;*/
+    /*}*/
 }
 
 @media screen and (max-width: 1458px) and (min-width: 1350px) {
-    .shape-box {
-        padding: 3rem;
-    }
+    /*.shape-box {*/
+        /*padding: 3rem;*/
+    /*}*/
+
     .shape-demo {
-        display: block;
+        /*display: block;*/
     }
+}
+
+.page-title {
+    background-image: repeating-linear-gradient(to bottom right, rgb(0, 196, 244) 0%, rgb(3, 96, 120) 100%);
 }
