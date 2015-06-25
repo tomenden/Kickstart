@@ -10,10 +10,8 @@
     color: #fff;
 }
 
-
 .menu-item > a:hover {
-    /* TODO: Replace with Hex color*/
-    color: orange;
+    color: #FF8000;
 }
 
 .figure-box {
@@ -24,10 +22,6 @@
     background: #046380;
 }
 
-.subject {
-    /*background: #9DC3C2;*/
-}
-
 .main-container {
     background: #EFECCA;
     -webkit-box-shadow: inset 0 0 40px 2px #0463D8;
@@ -35,22 +29,18 @@
     box-shadow: inset 0 0 40px 2px #0463D8;
 }
 
-.article-block {
-    /*background: #D6D0FA;*/
-}
-
 .shape-demo {
-    background: linear-gradient(45deg, rgba(167,207,223,1) 0%,rgba(35,83,138,1) 100%);
+    background: linear-gradient(45deg, rgba(167, 207, 223, 1) 0%, rgba(35, 83, 138, 1) 100%);
 }
 
 .triangle {
     color: #23538a;
 }
 
-.simple-box {
-    background: #D6D0FA;
-}
-
 .white {
     color: rgba(256, 256, 256, 0.95);
+}
+
+.form-button {
+    background-color: #8FBBD1;
 }
