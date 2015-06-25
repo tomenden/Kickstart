@@ -30,9 +30,7 @@
 }
 
 .subject {
-    /*text-align: center;*/
     margin: 0;
-    /*border: 2px dotted;*/
 }
 
 .pad-bottom {
@@ -44,7 +42,6 @@
 }
 
 .figure-box {
-    /*padding-bottom: 1rem;*/
     margin-left: 0;
 }
 
@@ -83,7 +80,6 @@
     .menu {
         display: inline;
         margin-left: -6px;
-        /*margin-top: 0;*/
     }
 }
 
@@ -94,26 +90,105 @@
     border: 1px solid;
 }
 
-/*.shape-box {*/
-    /*padding: 3rem;*/
-/*}*/
-
-@media screen and (max-width: 1663px) {
-    /*.shape-box {*/
-        /*padding: 0;*/
-    /*}*/
+.page-title {
+    background-image: repeating-linear-gradient(to bottom right, rgb(0, 196, 244) 0%, rgb(3, 96, 120) 100%);
 }
 
-@media screen and (max-width: 1458px) and (min-width: 1350px) {
-    /*.shape-box {*/
-        /*padding: 3rem;*/
-    /*}*/
+.contact-form > div > label {
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+    text-align: right;
+    padding-right: 0.5rem;
+}
 
-    .shape-demo {
-        /*display: block;*/
+.contact-form > div {
+    margin: 0.5rem auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .contact-form > div {
+        width: 100%;
     }
 }
 
-.page-title {
-    background-image: repeating-linear-gradient(to bottom right, rgb(0, 196, 244) 0%, rgb(3, 96, 120) 100%);
+@media screen and (min-width: 1001px) and (max-width: 1369px) {
+    .contact-form > div {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1370px) and (max-width: 1440px) {
+    .contact-form > div {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+    .contact-form > div {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .contact-form > div {
+        width: 70%;
+    }
+}
+
+.input-area {
+    display: inline-block;
+    width: 20rem;
+}
+
+.input-area > select {
+    width: 25%;
+}
+
+.input-area > select + input {
+    width: 75%;
+}
+
+.input-area > input:first-child {
+    width: 100%;
+}
+
+.input-area > textarea {
+    width: 100%;
+}
+
+.send-button-block {
+    text-align: center;
+}
+
+.search-button {
+    margin-left: 1rem;
+}
+
+@media screen and (max-width: 528px) {
+    .contact-form > div > label {
+        text-align: left;
+        width: 100%;
+        margin: 0.2rem;
+    }
+
+    .search-button {
+        display: block;
+        margin: 0.2rem 0;
+    }
+}
+
+.form-subject {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.gallery-image {
+    margin: 2rem auto;
+}
+
+@media screen and (min-width: 868px) {
+    .gallery-image {
+        display: inline-block;
+    }
 }
