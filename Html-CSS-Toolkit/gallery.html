@@ -2,9 +2,56 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/main.css"/>
+    <title>My Html & CSS Toolkit - June, 2015</title>
 </head>
-<body>
+<body class="main-background">
+<header class="header-background fixed-box">
+    <h1 class="site-title">Html & CSS Toolkit</h1>
+    <nav>
+        <!-- TODO: Replace Logo Image -->
+        <img src="http://img3.wikia.nocookie.net/__cb20090104011038/uncyclopedia/images/4/4c/Striped_apple_logo.png"
+             alt="some logo" class="logo"/>
+        <ul class="menu no-bullet-list">
+            <li class="menu-item"><a href="index.html">Basics</a></li>
+            <li class="menu-item"><a href="forms.html">Forms</a></li>
+            <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+            <li class="menu-item"><a href="transitions-shadows.html">Transitions & Shadows</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1 class="center-text">Image Gallery</h1>
+
+    <article class="center-text gallery-article-block">
+        <input type="checkbox" id="breaking-bad"/>
+        <label for="breaking-bad">
+            <h1 class="subject">Breaking Bad</h1>
+        </label>
+
+        <div class="gallery-block">
+            <section>
+                <article>
+                    <figure class="center-text twenty-by-twenty margin-gallery-imgs inline-block">
+                        <div class="circular-img breaking-bad-poster twenty-by-twenty"></div>
+                        <figcaption>No speeches. Short speech. You lost</figcaption>
+                    </figure>
+                    <figure class="center-text twenty-by-twenty margin-gallery-imgs inline-block">
+                        <div class="circular-img jesse-pinkman twenty-by-twenty"></div>
+                        <figcaption>Four pounds... foooour pounds as if</figcaption>
+                    </figure>
+                    <figure class="center-text twenty-by-twenty inline-block">
+                        <div class="circular-img saul-goodman twenty-by-twenty"></div>
+                        <figcaption>Today's your lucky day. Look around, kiddo</figcaption>
+                    </figure>
+                </article>
+            </section>
+        </div>
+    </article>
+
+</main>
 
 </body>
 </html>

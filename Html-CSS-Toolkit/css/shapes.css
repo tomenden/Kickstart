@@ -93,3 +93,22 @@
 .bordered-box {
     border: 0.4rem solid;
 }
+
+.circular-img {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.twenty-by-twenty {
+    width: 20rem;
+    height: 20rem;
+}
+
+.margin-gallery-imgs {
+    margin: 2rem;
+}
+
+.img {
+    max-width: 100%;
+}

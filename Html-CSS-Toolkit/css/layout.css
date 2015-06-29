@@ -78,3 +78,29 @@ input:checked  + label + .accordion-block {
     max-width: 100%;
     padding-left: 0;
 }
+
+.inline-block {
+    display: inline-block;
+}
+
+.gallery-article-block {
+    width: 100%;
+}
+
+.gallery-block {
+    display: none;
+}
+
+input[type=checkbox]:checked + label + .gallery-block {
+    display: block;
+}
+
+@media screen and (min-width: 600px) {
+    .gallery-block {
+        display: block;
+    }
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
