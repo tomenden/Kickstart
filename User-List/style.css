@@ -1,0 +1,16 @@
+body {
+    background: #3E606F;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    border: 1px solid;
+}
+
+td, th {
+    border: 1px solid;
+}
