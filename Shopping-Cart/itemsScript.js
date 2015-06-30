@@ -53,7 +53,7 @@ function handleChangeRow(select) {
 }
 
 function createPaginationDiv() {
-    var tFoot = document.querySelector('tFoot');
+    var body = document.querySelector('body');
     var paginationFragment = document.createDocumentFragment();
     var div = document.createElement('div');
     div.setAttribute('class', 'pagesButtons');
@@ -65,7 +65,7 @@ function createPaginationDiv() {
         div.appendChild(button);
     }
     paginationFragment.appendChild(div);
-    tFoot.appendChild(paginationFragment);
+    body.appendChild(paginationFragment);
 };
 
 function createPageFragment(pageNumber) {
