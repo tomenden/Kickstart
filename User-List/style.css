@@ -1,5 +1,5 @@
 body {
-    background: #3E606F;
+    background: #91AA9D;
 }
 
 h1 {
@@ -9,8 +9,13 @@ h1 {
 table {
     margin: 0 auto;
     border: 1px solid;
+    background-color: rgba(245, 222, 179, 0.5);
 }
 
 td, th {
     border: 1px solid;
+}
+
+tbody > tr:nth-child(2n + 1) {
+    background-color: rgba(245, 222, 179, 1);
 }

@@ -2,7 +2,7 @@
  * Created by tome on 6/29/15.
  */
 var tBody = document.querySelector('tbody');
-var fragment = document.createDocumentFragment();
+//var fragment = document.createDocumentFragment();
 var headers = document.querySelectorAll('th');
 var headersOrder = [];
 var itemsPerPage = 5; //TODO: Move to input for user selection
@@ -33,7 +33,6 @@ function fillOptions(selectElement, arrayLength, index) {
     }
 })();
 
-
 function updateSelected() {
     var allSelects = tBody.querySelectorAll('select');
     for (var i = 0; i < allSelects.length; i++) {
@@ -57,6 +56,7 @@ function createPaginationDiv() {
     var tFoot = document.querySelector('tFoot');
     var paginationFragment = document.createDocumentFragment();
     var div = document.createElement('div');
+    div.setAttribute('class', 'pagesButtons');
     for (var i = 0; i < pagesCount; i++) {
         var pageNum = i + 1;
         var button = document.createElement('button');
@@ -90,15 +90,27 @@ function createPageFragment(pageNumber) {
     return pageFragment;
 }
 
+function updatePageButtonClasses(pageNumber) {
+    var allButtons = document.querySelectorAll('.pagesButtons > button');
+    var pageIndex = pageNumber - 1;
+    for (var i = 0; i < allButtons.length; i++) {
+        if (i === pageIndex) {
+            allButtons[i].setAttribute('class', 'currentPage');
+        } else {
+            allButtons[i].removeAttribute('class');
+        }
+    }
+}
+
 function goToPage(pageNumber) {
     var pageFragment = createPageFragment(pageNumber);
     tBody.innerHTML = ""; // reset tBody
     tBody.appendChild(pageFragment);
+    updatePageButtonClasses(pageNumber);
     updateSelected();
 }
 
 (function init() {
-    goToPage(1);
     createPaginationDiv();
+    goToPage(1);
 })();
-
