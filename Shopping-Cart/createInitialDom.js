@@ -49,6 +49,7 @@ function createPaginationDiv() {
 
 function drawItemsPerPageInput() {
     var div = document.createElement('div');
+    div.setAttribute('class', 'items-per-page-input');
     var inputElement = createItemsPerPageInput();
     var itemsTable = document.querySelector('table.items-list');
     div.appendChild(inputElement);
@@ -64,8 +65,11 @@ function createItemsPerPageInput() {
 
     form.innerHTML = 'Items Per Page:';
     numberInput.type = 'number';
+    numberInput.min = 1;
     numberInput.max = ITEMS.length;
-    numberInput.onchange = function () {setItemsPerPage(this.value);};
+    numberInput.onchange = function () {
+        setItemsPerPage(this.value);
+    };
     form.appendChild(numberInput);
     fragment.appendChild(form);
     return fragment;

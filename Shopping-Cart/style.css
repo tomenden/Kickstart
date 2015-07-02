@@ -40,3 +40,7 @@ div.cart {
     right: 50px;
     top: 120px;
 }
+
+div.items-per-page-input {
+    text-align: center;
+}
