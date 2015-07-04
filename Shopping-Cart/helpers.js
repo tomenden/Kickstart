@@ -32,3 +32,22 @@ function getItemFromId(id) {
         }
     }
 }
+
+
+/**
+ *
+ * @param type String - e.g. 'div', 'tr'
+ * @param attributesObject - e.g {'class': 'someClassName'}
+ * @returns {Element}
+ */
+function createDomElement(type, attributesObject) {
+    var element = document.createElement(type);
+    if (attributesObject) {
+        for (var attr in attributesObject) {
+            if (attributesObject.hasOwnProperty(attr)) {
+                element.setAttribute(attr, attributesObject[attr]);
+            }
+        }
+    }
+    return element;
+}

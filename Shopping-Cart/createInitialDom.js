@@ -23,7 +23,7 @@ function createItemsTableContent(pageNumber) {
 }
 
 function createPaginationDiv() {
-    var body = document.querySelector('body');
+    var body = document.body;
     var firstScriptElement = document.querySelector('script');
     var table = document.querySelector('table');
     var paginationFragment = createFragment();
