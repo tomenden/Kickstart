@@ -125,13 +125,14 @@ function ShopWindow(ids) {//array of item ids
         }
         this.displayData = itemsDisplayData;
         console.log(itemsDisplayData);
+        publish('shopWindow update done', this.ids);
         return itemsDisplayData;
     }.bind(this);
-    this.subscribe = function() {
-        subscribe('quantityChanged', this.update);
-        subscribe('shopWindowChanged', this.update);
-        subscribe('updatedItemsOnPage', this.displayNewItems);//Subscribe to pagination change/update
-    };
+    //this.subscribe = function() {
+    //    subscribe('quantityChanged', this.update);
+    //    subscribe('shopWindowChanged', this.update);
+    //    subscribe('updatedItemsOnPage', this.displayNewItems);//Subscribe to pagination change/update
+    //};
     this.displayNewItems = function (ids) {
         this.ids = ids;
         publish('shopWindowChanged');
@@ -145,11 +146,11 @@ function ShopWindow(ids) {//array of item ids
         }
     };
     //Initialize
-    this.subscribe();
+    //this.subscribe();
 }
 
-ShopWindow = new ShopWindow();
-
+//ShopWindow = new ShopWindow();
+var shopWindow = new ShopWindow();
 
 
 
@@ -177,21 +178,21 @@ function Pagination(currentPage, itemsPerPage) {
         this.currentPage = pageNumber;
         publish('changePage');
     }.bind(this);
-    this.changeItemsPerPage = function(limit) {
+    this.setItemsPerPage = function(limit) {
         this.itemsPerPage = limit;
-        publish('changeItemsPerPage');
+        publish('setItemsPerPage');
     }.bind(this);
-    this.subscribe = function () {
-        subscribe('changePage', this.update);
-        subscribe('changeItemsPerPage', this.update);
-    };
+    //this.subscribe = function () {
+    //    subscribe('changePage', this.update);
+    //    subscribe('setItemsPerPage', this.update);
+    //};
 
     //init
-    this.update();
-    this.subscribe();
+    //this.update();
+    //this.subscribe();
 }
 
-Pagination = new Pagination(1, 5);
+var pagination = new Pagination(1, 5);
 
 //Helper
 function itemIndexInCart(itemId, cart) {
@@ -240,14 +241,14 @@ function ShoppingCart() {
         return {'Total Quantity': quantity, 'Total Price': price};
     }.bind(this);
 
-
-    this.subscribe = function () {
-        subscribe('addToCartButtonPressed', this.addItemToCart);
-        subscribe('Added item to cart', this.getTotal);
-        subscribe('Removed item from cart', this.getTotal);
-    };
-
-    this.subscribe();
+    //
+    //this.subscribe = function () {
+    //    subscribe('addToCartButtonPressed', this.addItemToCart);
+    //    subscribe('Added item to cart', this.getTotal);
+    //    subscribe('Removed item from cart', this.getTotal);
+    //};
+    //
+    //this.subscribe();
 }
 
-ShoppingCart = new ShoppingCart();
+var shoppingCart = new ShoppingCart();
