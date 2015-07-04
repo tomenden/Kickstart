@@ -208,18 +208,27 @@ function ShoppingCart() {
     this.addItemToCart = function (item) {
         var indexInCart = itemIndexInCart(item.id, this);
         if (indexInCart > -1) {
-            delete this.itemsInCart[indexInCart];
+            this.itemsInCart[indexInCart].quantity = item.quantity;
+            this.itemsInCart[indexInCart].price = parseInt(item.quantity, 10) * parseInt(item.price, 10);
         }
-        var itemObj = {
-            id: item.id,
-            name: item.name,
-            quantity: item.quantity,
-            price: parseInt(item.quantity, 10) * parseInt(item.price, 10)
-        };
-        this.itemsInCart.push(itemObj);
+        else {
+            var itemObj = {
+                id: item.id,
+                name: item.name,
+                quantity: item.quantity,
+                price: parseInt(item.quantity, 10) * parseInt(item.price, 10)
+            };
+            this.itemsInCart.push(itemObj);
+        }
         publish('Added item to cart');
     }.bind(this);
-
+    this.removeItemFromCart = function(itemId) {
+        var indexInCart = itemIndexInCart(itemId, this);
+        if (indexInCart > -1) {
+            this.itemsInCart.splice(indexInCart, 1);
+            publish('Removed item from cart', itemId);
+        }
+    }.bind(this);
     this.getTotal = function () {
         var quantity = 0, price = 0;
         for (var i = 0; i < this.itemsInCart.length; i++) {
@@ -234,7 +243,8 @@ function ShoppingCart() {
 
     this.subscribe = function () {
         subscribe('addToCartButtonPressed', this.addItemToCart);
-        subscribe('Added item to cart', this.getTotal)
+        subscribe('Added item to cart', this.getTotal);
+        subscribe('Removed item from cart', this.getTotal);
     };
 
     this.subscribe();
