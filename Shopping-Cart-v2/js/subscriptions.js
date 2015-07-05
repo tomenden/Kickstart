@@ -8,6 +8,11 @@ subscribe('quantityChanged', shopWindow.update);
 subscribe('shopWindowChanged', shopWindow.update);
 subscribe('updatedItemsOnPage', shopWindow.displayNewItems);//Subscribe to pagination change/update
 
+
+//TODO: Change this so it gets redrawn only on INITIAL load and when added/removed item from cart
+subscribe('shopWindow update done', drawShoppingCart);
+subscribe('Added item to cart', drawShoppingCart);
+
 subscribe('changePage', pagination.update);
 subscribe('setItemsPerPage', pagination.update);
 

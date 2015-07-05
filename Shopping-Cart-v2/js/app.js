@@ -108,7 +108,7 @@ function decrementItem(itemId) {
 // To change the items displayed in the window use method displayNewItems([ids])
 function ShopWindow(ids) {//array of item ids
     this.ids = ids;
-    this.headers = ['name', 'description', 'image', 'price', 'quantity'];
+    this.headers = ['name', 'description', 'image', 'price', 'quantity', 'action'];
     this.displayData = [];
     this.update = function () {
         var itemsDisplayData = [];
@@ -206,6 +206,7 @@ function itemIndexInCart(itemId, cart) {
 
 function ShoppingCart() {
     this.itemsInCart = [];
+    this.headers = ['name', 'quantity', 'price'];
     this.addItemToCart = function (item) {
         var indexInCart = itemIndexInCart(item.id, this);
         if (indexInCart > -1) {

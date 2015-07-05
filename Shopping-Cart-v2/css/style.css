@@ -26,3 +26,11 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+
+span.plus:before {
+    content: '\002B';
+}
+
+span.minus:before {
+    content: '\2212';
+}
