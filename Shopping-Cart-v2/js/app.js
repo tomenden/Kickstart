@@ -100,58 +100,56 @@ function decrementItem(itemId) {
     return shoppingSession.selectedItems;
 }
 
-// Subscribe increment and decrement events to
 
 
 
-// Shop Window Constructor. There will be one instance of shop window.
-// To change the items displayed in the window use method displayNewItems([ids])
+/********ShopWindow****************************************************************************************************************************/
+/**
+ * Function used by ShopWindow.update()
+ * @param itemId
+ * @param headers
+ * @returns {{}}
+ */
+function getItemObjectWithFields(itemId, headers) {
+    var obj = {};
+    var item = getItemFromId(itemId);
+    for (var i = 0; i < headers.length; i++) {
+        var header = headers[i];
+        if (item[header]) {
+            obj[header] = item[header];
+        }
+    }
+    return obj;
+}
+
+
 function ShopWindow(ids) {//array of item ids
     this.ids = ids;
     this.headers = ['name', 'description', 'image', 'price', 'quantity', 'action'];
     this.displayData = [];
+    var that = this;
     this.update = function () {
-        var itemsDisplayData = [];
-        for (var i = 0; i < this.ids.length; i++) {
-            var obj = {};
-            var item = getItemFromId(this.ids[i]);
-            for (var j = 0; j < this.headers.length; j++) {
-                var header = this.headers[j];
-                if (item[header]) {
-                    obj[header] = item[header];
-                }
-            }
-            itemsDisplayData.push(obj);
+        for (var i = 0; i < that.ids.length; i++) {
+            var obj = getItemObjectWithFields(that.ids[i], that.headers);
+            that.displayData.push(obj);
         }
-        this.displayData = itemsDisplayData;
-        console.log(itemsDisplayData);
-        publish('shopWindow update done', this.ids);
-        return itemsDisplayData;
-    }.bind(this);
-    //this.subscribe = function() {
-    //    subscribe('quantityChanged', this.update);
-    //    subscribe('shopWindowChanged', this.update);
-    //    subscribe('updatedItemsOnPage', this.displayNewItems);//Subscribe to pagination change/update
-    //};
+        publish('shopWindow update done', that.ids);
+    };
     this.displayNewItems = function (ids) {
-        this.ids = ids;
+        that.ids = ids;
         publish('shopWindowChanged');
         return 'success';
-    }.bind(this);
-
+    };
     this.addToCart = function (itemId) {
         var item = getItemFromId(itemId);
         if (item.quantity) {
             publish('addToCartButtonPressed', item);
         }
     };
-    //Initialize
-    //this.subscribe();
 }
 
 //ShopWindow = new ShopWindow();
 var shopWindow = new ShopWindow();
-
 
 
 // pagination
@@ -178,18 +176,10 @@ function Pagination(currentPage, itemsPerPage) {
         this.currentPage = pageNumber;
         publish('changePage');
     }.bind(this);
-    this.setItemsPerPage = function(limit) {
+    this.setItemsPerPage = function (limit) {
         this.itemsPerPage = limit;
         publish('setItemsPerPage');
     }.bind(this);
-    //this.subscribe = function () {
-    //    subscribe('changePage', this.update);
-    //    subscribe('setItemsPerPage', this.update);
-    //};
-
-    //init
-    //this.update();
-    //this.subscribe();
 }
 
 var pagination = new Pagination(1, 5);
@@ -224,7 +214,7 @@ function ShoppingCart() {
         }
         publish('Added item to cart');
     }.bind(this);
-    this.removeItemFromCart = function(itemId) {
+    this.removeItemFromCart = function (itemId) {
         var indexInCart = itemIndexInCart(itemId, this);
         if (indexInCart > -1) {
             this.itemsInCart.splice(indexInCart, 1);
@@ -241,15 +231,6 @@ function ShoppingCart() {
         this.totalPrice = price;
         return {'Total Quantity': quantity, 'Total Price': price};
     }.bind(this);
-
-    //
-    //this.subscribe = function () {
-    //    subscribe('addToCartButtonPressed', this.addItemToCart);
-    //    subscribe('Added item to cart', this.getTotal);
-    //    subscribe('Removed item from cart', this.getTotal);
-    //};
-    //
-    //this.subscribe();
 }
 
 var shoppingCart = new ShoppingCart();
