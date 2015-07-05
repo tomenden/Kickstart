@@ -4,8 +4,16 @@
 
 /********Helpers****************************************************************************************************************************/
 
-function getNewFragment() {
+function getEmptyFragment() {
     return document.createDocumentFragment();
+}
+
+function getFragmentWithChildren(childrenArray) {
+    var fragment = getEmptyFragment();
+    for (var i = 0; i < childrenArray.length; i++) {
+        fragment.appendChild(childrenArray[i]);
+    }
+    return fragment;
 }
 
 function createNewElement(type, attributeObj) {
@@ -31,26 +39,40 @@ var createButton = createNewElement.bind(null, 'button');
 
 
 function createQuantityCellContent(itemId, quantity) {
-    var fragment = getNewFragment();
-    var plus = createSpan({class: 'plus'});
-    var minus = createSpan({class: 'minus'});
-    var input = createInput({type: 'number', min: 1, max: inventory.length, class: 'quantity-input'});
-    if (quantity) {
-        input.value = input.textContent = quantity;
-    }
+    var fragment = getEmptyFragment();
+    var plus = createPlus(itemId);
+    var minus = createMinus(itemId);
+    var input = createInputQuantity(quantity);
+    return getFragmentWithChildren([minus, input, plus]);
 
-    plus.onclick = function() {
+}
+
+function createPlus(itemId) {
+    var plus = createSpan({class: 'plus'});
+    plus.onclick = function () {
         incrementItem(itemId);
     };
+    return plus;
+}
+function createMinus(itemId) {
+    var minus = createSpan({class: 'minus'});
     minus.onclick = function () {
         decrementItem(itemId);
     };
-
-    fragment.appendChild(plus);
-    fragment.appendChild(input);
-    fragment.appendChild(minus);
-    return fragment;
-
+    return minus;
+}
+function createInputQuantity(quantity) {
+    var attr = {
+        type: 'number',
+        min: 1,
+        max: inventory.length,
+        class: 'quantity-input'
+    };
+    var input = createInput(attr);
+    if (quantity) {
+        input.value = input.textContent = quantity;
+    }
+    return input;
 }
 
 function createAddToCartButton(itemId) {
@@ -62,13 +84,13 @@ function createAddToCartButton(itemId) {
     return button;
 }
 
-function createItemRow(itemId, fields) {
-    var item = getItemFromId(itemId);
+function createItemRow(item, fields) {
+    //var item = getItemFromId(itemId);
     var row = createDivRow();
     //var fields = shopWindow.headers;
     for (var i = 0; i < fields.length; i++) {
         var cell = createDivCell();
-        cell.dataset.id = itemId;
+        cell.dataset.id = item.id;
         cell.dataset.field = fields[i];
 
         if (fields[i] === 'image') {
@@ -77,12 +99,12 @@ function createItemRow(itemId, fields) {
         }
 
         else if (fields[i] === 'quantity') {
-            var quantityCellContent = createQuantityCellContent(itemId, item.quantity);
+            var quantityCellContent = createQuantityCellContent(item.id, item.quantity);
             cell.appendChild(quantityCellContent);
         }
 
         else if (fields[i] === 'action') {
-            var addToCartButton = createAddToCartButton(itemId);
+            var addToCartButton = createAddToCartButton(item.id);
             cell.appendChild(addToCartButton);
         }
 
@@ -95,11 +117,10 @@ function createItemRow(itemId, fields) {
 }
 
 
-
 //subscribe('shopWindow update done', drawShopWindow);
 
-function drawShopWindow (ids) {//ids is an array from shopWindow.ids
-    var fragment = getNewFragment(),
+function drawShopWindow(ids) {//ids is an array from shopWindow.ids
+    var fragment = getEmptyFragment(),
         table = createDivTable(),
         heading = createDivHeading(),
         shopWindowSkin = skinParts.shopWindow;// this is where the shopWindow resides
@@ -111,7 +132,8 @@ function drawShopWindow (ids) {//ids is an array from shopWindow.ids
     table.appendChild(heading);
 
     for (var j = 0; j < ids.length; j++) {
-        var itemRow = createItemRow(ids[j], shopWindow.headers);
+        var item = getItemFromId(ids[j]);
+        var itemRow = createItemRow(item, shopWindow.headers);
         table.appendChild(itemRow);
     }
 
@@ -123,7 +145,7 @@ function drawShopWindow (ids) {//ids is an array from shopWindow.ids
 //** TODO: Combine drawShopWindow with drawShoppingCart, they're basically the same
 
 function drawShoppingCart() {
-    var fragment = getNewFragment(),
+    var fragment = getEmptyFragment(),
         table = createDivTable(),
         heading = createDivHeading(),
         shoppingCartSkin = skinParts.shoppingCart;
@@ -135,8 +157,8 @@ function drawShoppingCart() {
     table.appendChild(heading);
 
     for (var j = 0; j < shoppingCart.itemsInCart.length; j++) {
-        var itemId = shoppingCart.itemsInCart[j].id;
-        var itemRow = createItemRow(itemId, shoppingCart.headers);
+        var item = shoppingCart.itemsInCart[j];
+        var itemRow = createItemRow(item, shoppingCart.headers);
         table.appendChild(itemRow);
     }
 
