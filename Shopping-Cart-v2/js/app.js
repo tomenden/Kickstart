@@ -151,35 +151,36 @@ function ShopWindow(ids) {//array of item ids
 //ShopWindow = new ShopWindow();
 var shopWindow = new ShopWindow();
 
+/********Pagination****************************************************************************************************************************/
 
-// pagination
 function Pagination(currentPage, itemsPerPage) {
     this.currentPage = currentPage || 1;
     this.itemsPerPage = itemsPerPage || 5;
+    var that = this;
     this.getCurrentPageItemsIds = function () {
         var ids = [];
-        for (var i = this.firstItemIndex; i < this.lastItemIndex; i++) {
+        for (var i = that.firstItemIndex; i < that.lastItemIndex; i++) {
             ids.push(inventory[i].id);
         }
         return ids;
-    }.bind(this);
+    };
     this.update = function () {
-        this.numberOfPages = Math.ceil(inventory.length / this.itemsPerPage);
-        this.firstItemIndex = this.currentPage * this.itemsPerPage - this.itemsPerPage;
-        this.lastItemIndex = this.firstItemIndex + this.itemsPerPage;
-        if (this.lastItemIndex > inventory.length) {
-            this.lastItemIndex = inventory.length;
+        that.numberOfPages = Math.ceil(inventory.length / that.itemsPerPage);
+        that.firstItemIndex = that.currentPage * that.itemsPerPage - that.itemsPerPage;
+        that.lastItemIndex = that.firstItemIndex + that.itemsPerPage;
+        if (that.lastItemIndex > inventory.length) {
+            that.lastItemIndex = inventory.length;
         }
-        publish('updatedItemsOnPage', this.getCurrentPageItemsIds());
-    }.bind(this);
+        publish('updatedItemsOnPage', that.getCurrentPageItemsIds());
+    };
     this.goToPage = function (pageNumber) {
-        this.currentPage = pageNumber;
+        that.currentPage = pageNumber;
         publish('changePage');
-    }.bind(this);
+    };
     this.setItemsPerPage = function (limit) {
-        this.itemsPerPage = limit;
+        that.itemsPerPage = limit;
         publish('setItemsPerPage');
-    }.bind(this);
+    };
 }
 
 var pagination = new Pagination(1, 5);
