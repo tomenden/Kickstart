@@ -37,7 +37,7 @@ var createSpan = createNewElement.bind(null, 'span');
 var createInput = createNewElement.bind(null, 'input');
 var createButton = createNewElement.bind(null, 'button');
 
-
+// create quantity cell (plus - input - minus)
 function createQuantityCellContent(itemId, quantity) {
     var plus = createPlus(itemId);
     var minus = createMinus(itemId);
@@ -45,7 +45,6 @@ function createQuantityCellContent(itemId, quantity) {
     return getFragmentWithChildren([minus, input, plus]);
 
 }
-
 function createPlus(itemId) {
     var plus = createSpan({class: 'plus'});
     plus.onclick = function () {
@@ -74,6 +73,7 @@ function createInputQuantity(quantity) {
     return input;
 }
 
+// create add to cart button
 function createAddToCartButton(itemId) {
     var button = createButton();
     button.innerHTML = "Add";
