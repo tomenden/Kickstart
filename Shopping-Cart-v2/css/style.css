@@ -25,6 +25,7 @@
     border-width: thin;
     padding-left: 5px;
     padding-right: 5px;
+    vertical-align: middle;
 }
 
 span.plus:before {
@@ -33,4 +34,13 @@ span.plus:before {
 
 span.minus:before {
     content: '\2212';
+}
+
+.shopWindow {
+    width: 50%;
+    margin: 0 auto;
+}
+
+div.Row:nth-of-type(2n) {
+    background-color: rgba(211,211,211, 0.5);
 }
