@@ -9,7 +9,6 @@ function getItemFromId(id) {
     for (var i = 0; i < inventory.length; i++) {
         var item = inventory[i];
         if (item.id === id) {
-            console.log('success, item id: ' + id);
             return item;
         }
     }
@@ -121,15 +120,17 @@ function getItemObjectWithFields(itemId, headers) {
 }
 
 
-function ShopWindow(ids) {//array of item ids
-    this.ids = ids;
+function ShopWindow(ids, items) {//TODO: remove Ids
+    this.items = items || [];
+    this.ids = ids;//TODO: remove this
     this.headers = ['name', 'description', 'image', 'price', 'quantity', 'action'];
-    this.displayData = [];
+    //this.displayData = [];
     var that = this;
     this.update = function () {
+        that.items = [];
         for (var i = 0; i < that.ids.length; i++) {
             var obj = getItemObjectWithFields(that.ids[i], that.headers);
-            that.displayData.push(obj);
+            that.items.push(obj);
         }
         publish('shopWindow update done', that.ids);
     };
@@ -155,7 +156,7 @@ function Pagination(currentPage, itemsPerPage) {
     this.currentPage = currentPage || 1;
     this.itemsPerPage = itemsPerPage || 5;
     var that = this;
-    this.getCurrentPageItemsIds = function () {
+    this.getCurrentPageItems = function () {
         var ids = [];
         for (var i = that.firstItemIndex; i < that.lastItemIndex; i++) {
             ids.push(inventory[i].id);
@@ -169,7 +170,7 @@ function Pagination(currentPage, itemsPerPage) {
         if (that.lastItemIndex > inventory.length) {
             that.lastItemIndex = inventory.length;
         }
-        publish('updatedItemsOnPage', that.getCurrentPageItemsIds());
+        publish('updatedItemsOnPage', that.getCurrentPageItems());
     };
     this.goToPage = function (pageNumber) {
         that.currentPage = pageNumber;
@@ -185,8 +186,8 @@ var pagination = new Pagination(1, 5);
 
 //Helper
 function itemIndexInCart(itemId, cart) {
-    for (var i = 0; i < cart.itemsInCart.length; i++) {
-        if (cart.itemsInCart[i].id === itemId) {
+    for (var i = 0; i < cart.items.length; i++) {
+        if (cart.items[i].id === itemId) {
             return i;
         }
     }
@@ -196,14 +197,14 @@ function itemIndexInCart(itemId, cart) {
 /********Shopping Cart****************************************************************************************************************************/
 
 function ShoppingCart() {
-    this.itemsInCart = [];
+    this.items = [];
     this.headers = ['name', 'quantity', 'price'];
     var that = this;
     this.addItemToCart = function (item) {
         var indexInCart = itemIndexInCart(item.id, that);
         if (indexInCart > -1) {
-            that.itemsInCart[indexInCart].quantity = item.quantity;
-            that.itemsInCart[indexInCart].price = parseInt(item.quantity, 10) * parseInt(item.price, 10);
+            that.items[indexInCart].quantity = item.quantity;
+            that.items[indexInCart].price = parseInt(item.quantity, 10) * parseInt(item.price, 10);
         }
         else {
             var itemObj = {
@@ -212,22 +213,22 @@ function ShoppingCart() {
                 quantity: item.quantity,
                 price: parseInt(item.quantity, 10) * parseInt(item.price, 10)
             };
-            that.itemsInCart.push(itemObj);
+            that.items.push(itemObj);
         }
         publish('Added item to cart');
     };
     this.removeItemFromCart = function (itemId) {
         var indexInCart = itemIndexInCart(itemId, this);
         if (indexInCart > -1) {
-            that.itemsInCart.splice(indexInCart, 1);
+            that.items.splice(indexInCart, 1);
             publish('Removed item from cart', itemId);
         }
     };
     this.getTotal = function () {
         var quantity = 0, price = 0;
-        for (var i = 0; i < that.itemsInCart.length; i++) {
-            quantity += that.itemsInCart[i].quantity;
-            price += parseInt(that.itemsInCart[i].price, 10);
+        for (var i = 0; i < that.items.length; i++) {
+            quantity += that.items[i].quantity;
+            price += parseInt(that.items[i].price, 10);
         }
         that.totalQuantity = quantity;
         that.totalPrice = price;
