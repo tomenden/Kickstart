@@ -83,10 +83,8 @@ function createAddToCartButton(itemId) {
     return button;
 }
 
-function createItemRow(item, fields) {
-    //var item = getItemFromId(itemId);
+function createItemRow(item, fields, context) {
     var row = createDivRow();
-    //var fields = shopWindow.headers;
     for (var i = 0; i < fields.length; i++) {
         var cell = createDivCell();
         cell.dataset.id = item.id;
@@ -97,7 +95,7 @@ function createItemRow(item, fields) {
             cell.appendChild(img);
         }
 
-        else if (fields[i] === 'quantity') {
+        else if (fields[i] === 'quantity' && context === 'shopWindow') {
             var quantityCellContent = createQuantityCellContent(item.id, item.quantity);
             cell.appendChild(quantityCellContent);
         }
@@ -132,7 +130,7 @@ function drawShopWindow(ids) {//ids is an array from shopWindow.ids
 
     for (var j = 0; j < ids.length; j++) {
         var item = getItemFromId(ids[j]);
-        var itemRow = createItemRow(item, shopWindow.headers);
+        var itemRow = createItemRow(item, shopWindow.headers, 'shopWindow');
         table.appendChild(itemRow);
     }
 
