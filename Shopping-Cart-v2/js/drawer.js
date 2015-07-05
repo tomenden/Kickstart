@@ -39,7 +39,6 @@ var createButton = createNewElement.bind(null, 'button');
 
 
 function createQuantityCellContent(itemId, quantity) {
-    var fragment = getEmptyFragment();
     var plus = createPlus(itemId);
     var minus = createMinus(itemId);
     var input = createInputQuantity(quantity);
