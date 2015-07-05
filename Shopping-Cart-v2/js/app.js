@@ -101,8 +101,6 @@ function decrementItem(itemId) {
 }
 
 
-
-
 /********ShopWindow****************************************************************************************************************************/
 /**
  * Function used by ShopWindow.update()
@@ -195,14 +193,17 @@ function itemIndexInCart(itemId, cart) {
     return -1;
 }
 
+/********Shopping Cart****************************************************************************************************************************/
+
 function ShoppingCart() {
     this.itemsInCart = [];
     this.headers = ['name', 'quantity', 'price'];
+    var that = this;
     this.addItemToCart = function (item) {
-        var indexInCart = itemIndexInCart(item.id, this);
+        var indexInCart = itemIndexInCart(item.id, that);
         if (indexInCart > -1) {
-            this.itemsInCart[indexInCart].quantity = item.quantity;
-            this.itemsInCart[indexInCart].price = parseInt(item.quantity, 10) * parseInt(item.price, 10);
+            that.itemsInCart[indexInCart].quantity = item.quantity;
+            that.itemsInCart[indexInCart].price = parseInt(item.quantity, 10) * parseInt(item.price, 10);
         }
         else {
             var itemObj = {
@@ -211,27 +212,27 @@ function ShoppingCart() {
                 quantity: item.quantity,
                 price: parseInt(item.quantity, 10) * parseInt(item.price, 10)
             };
-            this.itemsInCart.push(itemObj);
+            that.itemsInCart.push(itemObj);
         }
         publish('Added item to cart');
-    }.bind(this);
+    };
     this.removeItemFromCart = function (itemId) {
         var indexInCart = itemIndexInCart(itemId, this);
         if (indexInCart > -1) {
-            this.itemsInCart.splice(indexInCart, 1);
+            that.itemsInCart.splice(indexInCart, 1);
             publish('Removed item from cart', itemId);
         }
-    }.bind(this);
+    };
     this.getTotal = function () {
         var quantity = 0, price = 0;
-        for (var i = 0; i < this.itemsInCart.length; i++) {
-            quantity += this.itemsInCart[i].quantity;
-            price += parseInt(this.itemsInCart[i].price, 10);
+        for (var i = 0; i < that.itemsInCart.length; i++) {
+            quantity += that.itemsInCart[i].quantity;
+            price += parseInt(that.itemsInCart[i].price, 10);
         }
-        this.totalQuantity = quantity;
-        this.totalPrice = price;
+        that.totalQuantity = quantity;
+        that.totalPrice = price;
         return {'Total Quantity': quantity, 'Total Price': price};
-    }.bind(this);
+    };
 }
 
 var shoppingCart = new ShoppingCart();
