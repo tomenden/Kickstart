@@ -36,6 +36,8 @@ var createImg = createNewElement.bind(null, 'img');
 var createSpan = createNewElement.bind(null, 'span');
 var createInput = createNewElement.bind(null, 'input');
 var createButton = createNewElement.bind(null, 'button');
+var createUl = createNewElement.bind(null, 'ul');
+var createLi = createNewElement.bind(null, 'li');
 
 // create quantity cell (plus - input - minus)
 function createShopWindowQuantityCell(itemId, quantity) {
@@ -151,3 +153,8 @@ function drawShoppingCart() {
 function drawShopWindow() {
     return drawTable(shopWindow, skinParts.shopWindow);
 }
+
+//function drawPagination() {//hard-coded to work on the pagination object. Consider changing it
+//    var ul = createUl({class: "page-list"});
+//
+//}
