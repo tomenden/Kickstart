@@ -126,14 +126,15 @@ function createHeadingRow(headers) {
 function drawTable(object, skinPart) {
     var table = createDivTable();
     var heading = createHeadingRow(object.headers);
+    var itemRow;
     table.appendChild(heading);
     for (var i = 0; i < object.items.length; i++) {
         var item = object.items[i];
         if (object instanceof ShopWindow) {
-            var itemRow = createItemRow(item, object.headers, 'shopWindow');
+            itemRow = createItemRow(item, object.headers, 'shopWindow');
         }
         else {
-            var itemRow = createItemRow(item, object.headers);
+            itemRow = createItemRow(item, object.headers);
         }
         table.appendChild(itemRow);
     }
