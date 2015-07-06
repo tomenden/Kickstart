@@ -44,3 +44,23 @@ span.minus:before {
 div.Row:nth-of-type(2n) {
     background-color: rgba(211,211,211, 0.5);
 }
+
+ul.page-list {
+    list-style-type: none;
+    text-align: center;
+}
+
+li.page-number {
+    display: inline-block;
+    background-color: rgba(211, 211, 211, 0.5);
+    border: 0.1rem solid;
+    padding: 0.4rem;
+}
+
+li.page-number:not(.current-page):hover {
+    background-color: rgba(211, 211, 211, 0.2);
+}
+
+li.current-page {
+    background: rgba(0, 255, 0, 0.2);
+}
