@@ -76,9 +76,6 @@ function incrementItem(itemId) {
         }
         item.quantity += 1;
     }
-    //else if (itemAlreadySelected(itemId) && item.quantity === item.stock) {
-    //     console.log('Item limit reached');
-    //}
     else {
         shoppingSession.selectedItems.push(getItemWithQuantity(itemId, 1));
     }
