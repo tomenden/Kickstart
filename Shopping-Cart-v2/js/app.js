@@ -205,7 +205,7 @@ function itemIndexInCart(itemId, cart) {
 
 function ShoppingCart() {
     this.items = [];
-    this.headers = ['name', 'quantity', 'price'];
+    this.headers = ['name', 'quantity', 'price', 'action'];
     var that = this;
     this.addItemToCart = function (item) {
         var indexInCart = itemIndexInCart(item.id, that);
