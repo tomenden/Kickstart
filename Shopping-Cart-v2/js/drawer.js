@@ -78,7 +78,7 @@ function createInputQuantity(quantity) {
 // create add to cart button
 function createAddToCartButton(itemId) {
     var button = createButton();
-    button.innerHTML = "Add";
+    button.textContent = "Add";
     button.onclick = function () {
         shopWindow.addToCart(itemId);
     };
@@ -176,3 +176,12 @@ function drawPagination() {//hard-coded to work on the pagination object. Consid
     skinParts.pagination.appendChild(ul);
 }
 
+// create remove Button
+function createRemoveButton(itemId) {
+    var button = createButton({class: 'remove'});
+    button.textContent = "Remove";
+    button.onclick = function () {
+        shoppingCart.removeItemFromCart(itemId);
+    };
+    return button;
+}
