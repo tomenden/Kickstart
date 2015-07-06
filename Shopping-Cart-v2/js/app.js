@@ -116,6 +116,8 @@ function getItemObjectWithFields(itemId, headers) {
             obj[header] = item[header];
         }
     }
+    //add itemId, in case not in Headers
+    obj.id = itemId;
     return obj;
 }
 

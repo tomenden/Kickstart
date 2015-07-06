@@ -113,54 +113,40 @@ function createItemRow(item, fields, context) {
     return row;
 }
 
-
-//subscribe('shopWindow update done', drawShopWindow);
-
-function drawShopWindow(ids) {//ids is an array from shopWindow.ids
-    var fragment = getEmptyFragment(),
-        table = createDivTable(),
-        heading = createDivHeading(),
-        shopWindowSkin = skinParts.shopWindow;// this is where the shopWindow resides
-    for (var i = 0; i < shopWindow.headers.length; i++) {
+function createHeadingRow(headers) {
+    var heading = createDivHeading();
+    for (var i = 0; i < headers.length; i++) {
         var headingCell = createDivCell();
-        headingCell.textContent = shopWindow.headers[i];
+        headingCell.textContent = headers[i];
         heading.appendChild(headingCell);
     }
-    table.appendChild(heading);
-
-    for (var j = 0; j < ids.length; j++) {
-        var item = getItemFromId(ids[j]);
-        var itemRow = createItemRow(item, shopWindow.headers, 'shopWindow');
-        table.appendChild(itemRow);
-    }
-
-    fragment.appendChild(table);
-    shopWindowSkin.innerHTML = ""; //reset shopWindow
-    shopWindowSkin.appendChild(fragment);
+    return heading;
 }
 
-//** TODO: Combine drawShopWindow with drawShoppingCart, they're basically the same
-
-function drawShoppingCart() {
-    var fragment = getEmptyFragment(),
-        table = createDivTable(),
-        heading = createDivHeading(),
-        shoppingCartSkin = skinParts.shoppingCart;
-    for (var i = 0; i < shoppingCart.headers.length; i++) {
-        var headingCell = createDivCell();
-        headingCell.textContent = shoppingCart.headers[i];
-        heading.appendChild(headingCell);
-    }
+function drawTable(object, skinPart) {
+    var table = createDivTable();
+    var heading = createHeadingRow(object.headers);
     table.appendChild(heading);
-
-    for (var j = 0; j < shoppingCart.itemsInCart.length; j++) {
-        var item = shoppingCart.itemsInCart[j];
-        var itemRow = createItemRow(item, shoppingCart.headers);
+    for (var i = 0; i < object.items.length; i++) {
+        var item = object.items[i];
+        if (object instanceof ShopWindow) {
+            var itemRow = createItemRow(item, object.headers, 'shopWindow');
+        }
+        else {
+            var itemRow = createItemRow(item, object.headers);
+        }
         table.appendChild(itemRow);
     }
+    skinPart.innerHTML = "";//reset
+    skinPart.appendChild(table);
+    return table;
 
-    fragment.appendChild(table);
-    shoppingCartSkin.innerHTML = ""; //reset
-    shoppingCartSkin.appendChild(fragment);
-    //return fragment;
+}
+
+function drawShoppingCart() {
+    return drawTable(shoppingCart, skinParts.shoppingCart);
+}
+
+function drawShopWindow() {
+    return drawTable(shopWindow, skinParts.shopWindow);
 }
