@@ -3,5 +3,6 @@
  */
 var skinParts = {
     shopWindow: document.querySelector('div.shopWindow'),
-    shoppingCart: document.querySelector('div.shoppingCart')
+    shoppingCart: document.querySelector('div.shoppingCart'),
+    pagination: document.querySelector('div.pagination')
 };
