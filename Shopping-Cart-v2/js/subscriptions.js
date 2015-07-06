@@ -23,7 +23,7 @@ subscribe('shopWindow update done', drawShoppingCart);
 
 subscribe('changePage', pagination.update);
 subscribe('setItemsPerPage', pagination.update);
-
+subscribe('Removed item from cart', pagination.update);
 
 subscribe('addToCartButtonPressed', shoppingCart.addItemToCart);
 subscribe('Added item to cart', shoppingCart.getTotal);
