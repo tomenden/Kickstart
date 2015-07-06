@@ -15,7 +15,7 @@ function getItemFromId(id) {
     console.log('could not find item with id: ' + id);
     return false;
 }
-function getItemWithQuantity(itemId, quantity) {
+function getItemWithQuantity(itemId, quantity) {//TODO: change this function
     var item = getItemFromId(itemId);
     if (quantity > item.stock) {
         console.log('No more soup for you!');
@@ -68,9 +68,17 @@ var shoppingSession = {
 /********Increment & Decrement****************************************************************************************************************************/
 
 function incrementItem(itemId) {
+    var item = getItemFromId(itemId);
     if (itemAlreadySelected(itemId)) {
-        getItemFromId(itemId).quantity += 1;
+        if (item.quantity >= item.stock) {//TODO change handling of this case, and function in general
+            console.log('Item limit reached');
+            return false;
+        }
+        item.quantity += 1;
     }
+    //else if (itemAlreadySelected(itemId) && item.quantity === item.stock) {
+    //     console.log('Item limit reached');
+    //}
     else {
         shoppingSession.selectedItems.push(getItemWithQuantity(itemId, 1));
     }
