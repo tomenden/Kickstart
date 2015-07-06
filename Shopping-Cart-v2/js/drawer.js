@@ -38,7 +38,7 @@ var createInput = createNewElement.bind(null, 'input');
 var createButton = createNewElement.bind(null, 'button');
 
 // create quantity cell (plus - input - minus)
-function createQuantityCellContent(itemId, quantity) {
+function createShopWindowQuantityCell(itemId, quantity) {
     var plus = createPlus(itemId);
     var minus = createMinus(itemId);
     var input = createInputQuantity(quantity);
@@ -96,7 +96,7 @@ function createItemRow(item, fields, context) {
         }
 
         else if (fields[i] === 'quantity' && context === 'shopWindow') {
-            var quantityCellContent = createQuantityCellContent(item.id, item.quantity);
+            var quantityCellContent = createShopWindowQuantityCell(item.id, item.quantity);
             cell.appendChild(quantityCellContent);
         }
 
