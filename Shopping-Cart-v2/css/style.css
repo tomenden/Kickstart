@@ -55,6 +55,7 @@ li.page-number {
     background-color: rgba(211, 211, 211, 0.5);
     border: 0.1rem solid;
     padding: 0.4rem;
+    cursor: pointer;
 }
 
 li.page-number:not(.current-page):hover {
@@ -63,4 +64,5 @@ li.page-number:not(.current-page):hover {
 
 li.current-page {
     background: rgba(0, 255, 0, 0.2);
+    cursor: default;
 }
