@@ -154,7 +154,16 @@ function drawShopWindow() {
     return drawTable(shopWindow, skinParts.shopWindow);
 }
 
-//function drawPagination() {//hard-coded to work on the pagination object. Consider changing it
-//    var ul = createUl({class: "page-list"});
-//
-//}
+function drawPagination() {//hard-coded to work on the pagination object. Consider changing it
+    var ul = createUl({class: "page-list"});
+    for (var i = 1; i <= pagination.numberOfPages; i++) {
+        var li = createLi({class: "page-number"});
+        li.textContent = i.toString();
+        if (i === pagination.currentPage) {
+            li.className = li.className + " current-page";
+        }
+        ul.appendChild(li);
+    }
+    skinParts.pagination.innerHTML = "";//reset
+    skinParts.pagination.appendChild(ul);
+}
