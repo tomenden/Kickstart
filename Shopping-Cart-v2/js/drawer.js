@@ -102,9 +102,14 @@ function createItemRow(item, fields, context) {
             cell.appendChild(quantityCellContent);
         }
 
-        else if (fields[i] === 'action') {
+        else if (fields[i] === 'action' && context === 'shopWindow') {
             var addToCartButton = createAddToCartButton(item.id);
             cell.appendChild(addToCartButton);
+        }
+
+        else if (fields[i] === 'action' && context === 'shoppingCart') {
+            var removeButton = createRemoveButton(item.id);
+            cell.appendChild(removeButton);
         }
 
         else if (item[fields[i]]) {
@@ -135,8 +140,8 @@ function drawTable(object, skinPart) {
         if (object instanceof ShopWindow) {
             itemRow = createItemRow(item, object.headers, 'shopWindow');
         }
-        else {
-            itemRow = createItemRow(item, object.headers);
+        if (object instanceof ShoppingCart) {
+            itemRow = createItemRow(item, object.headers, 'shoppingCart');
         }
         table.appendChild(itemRow);
     }
