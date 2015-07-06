@@ -2,8 +2,10 @@
  * Created by tome on 7/4/15.
  */
 
+//Pagination drawer
+subscribe('updatedItemsOnPage', drawPagination);
+
 //subscribe('shopWindow update done', drawShopWindow);
-//TODO: fix
 subscribe('shopWindow update done', drawShopWindow);
 
 subscribe('quantityChanged', shopWindow.update);
