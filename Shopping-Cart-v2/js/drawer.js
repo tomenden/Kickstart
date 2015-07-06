@@ -157,13 +157,22 @@ function drawShopWindow() {
 function drawPagination() {//hard-coded to work on the pagination object. Consider changing it
     var ul = createUl({class: "page-list"});
     for (var i = 1; i <= pagination.numberOfPages; i++) {
-        var li = createLi({class: "page-number"});
+        var li = createLi({class: "page-number", "data-number": i});
         li.textContent = i.toString();
         if (i === pagination.currentPage) {
             li.className = li.className + " current-page";
         }
         ul.appendChild(li);
     }
+
+    ul.addEventListener('click', function (event) {
+        var target = event.target;
+        if (target && target.tagName.toLowerCase() === 'li') {
+            pagination.goToPage(parseInt(target.dataset.number, 10));
+        }
+    });
+
     skinParts.pagination.innerHTML = "";//reset
     skinParts.pagination.appendChild(ul);
 }
+
