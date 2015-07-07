@@ -26,13 +26,9 @@ function getItemWithQuantity(itemId, quantity) {//TODO: change this function
     return item;
 }
 function itemAlreadySelected(itemId) {
-    var selectedItems = shoppingSession.selectedItems;
-    for (var i = 0; i < selectedItems.length; i++) {
-        if (selectedItems[i].id === itemId) {
-            return true;
-        }
-    }
-    return false;
+    var item = getItemFromId(itemId);
+    return !!item.quantity;
+
 }
 
 /********Pub/Sub****************************************************************************************************************************/
