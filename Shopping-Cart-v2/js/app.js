@@ -126,35 +126,30 @@ function getItemObjectWithFields(itemId, headers) {
     return obj;
 }
 
-
-function ShopWindow(ids, items) {//TODO: remove Ids
-    this.items = items || [];
-    this.ids = ids;//TODO: remove this
-    this.headers = ['name', 'description', 'image', 'price', 'quantity', 'action'];
-    var that = this;
-    this.update = function () {
-        that.items = [];
-        for (var i = 0; i < that.ids.length; i++) {
-            var obj = getItemObjectWithFields(that.ids[i], that.headers);
-            that.items.push(obj);
+var shopWindow = {//TODO: consider changing all instances of shopWindow in this function to this, and binding to shopWindow in the pubsub
+    items: [],
+    ids: [],
+    headers: ['name', 'description', 'image', 'price', 'quantity', 'action'],
+    update: function () {
+        shopWindow.items = [];
+        for (var i = 0; i < shopWindow.ids.length; i++) {
+            var obj = getItemObjectWithFields(shopWindow.ids[i], shopWindow.headers);
+            shopWindow.items.push(obj);
         }
-        publish('shopWindow update done', that.ids);
-    };
-    this.displayNewItems = function (ids) {
-        that.ids = ids;
+        publish('shopWindow update done', shopWindow.ids);
+    },
+    displayNewItems: function (ids) {
+        shopWindow.ids = ids;
         publish('shopWindowChanged');
         return 'success';
-    };
-    this.addToCart = function (itemId) {
+    },
+    addToCart: function (itemId) {
         var item = getItemFromId(itemId);
         if (item.quantity) {
             publish('addToCartButtonPressed', item);
         }
-    };
-}
-
-//ShopWindow = new ShopWindow();
-var shopWindow = new ShopWindow();
+    }
+};
 
 /********Pagination****************************************************************************************************************************/
 
