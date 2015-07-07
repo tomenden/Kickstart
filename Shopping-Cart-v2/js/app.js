@@ -131,7 +131,6 @@ function ShopWindow(ids, items) {//TODO: remove Ids
     this.items = items || [];
     this.ids = ids;//TODO: remove this
     this.headers = ['name', 'description', 'image', 'price', 'quantity', 'action'];
-    //this.displayData = [];
     var that = this;
     this.update = function () {
         that.items = [];
@@ -205,7 +204,7 @@ function itemIndexInCart(itemId, cart) {
 
 function ShoppingCart() {
     this.items = [];
-    this.headers = ['name', 'quantity', 'price', 'action'];
+    this.headers = ['name', 'quantity', 'price', 'action'];//TODO: Remove from here, belongs in drawer
     var that = this;
     this.addItemToCart = function (item) {
         var indexInCart = itemIndexInCart(item.id, that);
