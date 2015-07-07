@@ -145,7 +145,7 @@ function drawTable(object, skinPart) {
         }
         table.appendChild(itemRow);
     }
-    skinPart.innerHTML = "";//reset
+    skinPart.innerHTML = "";//reset TODO: remove these resets, change with something better
     skinPart.appendChild(table);
     return table;
 
@@ -155,9 +155,9 @@ function drawShoppingCart() {
     return drawTable(shoppingCart, skinParts.shoppingCart);
 }
 
-function drawShopWindow() {
-    return drawTable(shopWindow, skinParts.shopWindow);
-}
+//function drawShopWindow() {
+//    return drawTable(shopWindow, skinParts.shopWindow);
+//}
 
 function drawPagination() {//hard-coded to work on the pagination object. Consider changing it
     var ul = createUl({class: "page-list"});
@@ -189,4 +189,54 @@ function createRemoveButton(itemId) {
         shoppingCart.removeItemFromCart(itemId);
     };
     return button;
+}
+
+function drawShopWindow() {
+    var table = createDivTable(),
+        headers = ['name', 'description', 'image', 'price', 'quantity', 'action'],
+        heading = createHeadingRow(headers),
+        shopSkin = skinParts.shopWindow,
+        items = shopWindow.items;//TODO: maybe move it to argument
+    table.appendChild(heading);
+    for (var i = 0; i < items.length; i++) {
+        var row = getShopRow(items[i], headers);
+        table.appendChild(row);
+    }
+
+    shopSkin.innerHTML = "";
+    shopSkin.appendChild(table);
+
+
+}
+
+
+function getShopRow(item, fields) {
+    var row = createDivRow();
+    for (var i = 0; i < fields.length; i++) {
+        var cell = getShopCell(item, fields[i]);
+        row.appendChild(cell);
+    }
+    return row;
+}
+
+function getShopCell(item, field) {
+    var cell = createDivCell();
+    switch (field) {
+        case 'image':
+            var img = createImg({'src': item.image});
+            cell.appendChild(img);
+            break;
+        case 'quantity':
+            var quantityCell = createShopWindowQuantityCell(item.id, item.quantity);
+            cell.appendChild(quantityCell);
+            break;
+        case 'action':
+            var addCell = createAddToCartButton(item.id);
+            cell.appendChild(addCell);
+            break;
+        default:
+            cell.textContent = item[field];
+            break;
+    }
+    return cell;
 }
