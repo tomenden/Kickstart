@@ -25,6 +25,6 @@ subscribe('changePage', pagination.update.bind(pagination));
 subscribe('setItemsPerPage', pagination.update.bind(pagination));
 subscribe('Removed item from cart', pagination.update.bind(pagination));
 
-subscribe('addToCartButtonPressed', shoppingCart.addItemToCart);
-subscribe('Added item to cart', shoppingCart.getTotal);
-subscribe('Removed item from cart', shoppingCart.getTotal);
+subscribe('addToCartButtonPressed', shoppingCart.addItemToCart.bind(shoppingCart));
+subscribe('Added item to cart', shoppingCart.getTotal.bind(shoppingCart));
+subscribe('Removed item from cart', shoppingCart.getTotal.bind(shoppingCart));

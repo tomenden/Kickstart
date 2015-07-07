@@ -195,15 +195,14 @@ function itemIndexInCart(itemId, cart) {
 
 /********Shopping Cart****************************************************************************************************************************/
 
-function ShoppingCart() {
-    this.items = [];
-    this.headers = ['name', 'quantity', 'price', 'action'];//TODO: Remove from here, belongs in drawer
-    var that = this;
-    this.addItemToCart = function (item) {
-        var indexInCart = itemIndexInCart(item.id, that);
+var shoppingCart = {
+    items: [],
+    headers: ['name', 'quantity', 'price', 'action'],//TODO: Remove from here, belongs in drawer
+    addItemToCart: function (item) {
+        var indexInCart = itemIndexInCart(item.id, this);
         if (indexInCart > -1) {
-            that.items[indexInCart].quantity = item.quantity;
-            that.items[indexInCart].price = parseInt(item.quantity, 10) * parseInt(item.price, 10);
+            this.items[indexInCart].quantity = item.quantity;
+            this.items[indexInCart].price = parseInt(item.quantity, 10) * parseInt(item.price, 10);
         }
         else {
             var itemObj = {
@@ -212,27 +211,25 @@ function ShoppingCart() {
                 quantity: item.quantity,
                 price: parseInt(item.quantity, 10) * parseInt(item.price, 10)
             };
-            that.items.push(itemObj);
+            this.items.push(itemObj);
         }
         publish('Added item to cart');
-    };
-    this.removeItemFromCart = function (itemId) {
+    },
+    removeItemFromCart: function (itemId) {
         var indexInCart = itemIndexInCart(itemId, this);
         if (indexInCart > -1) {
-            that.items.splice(indexInCart, 1);
+            this.items.splice(indexInCart, 1);
             publish('Removed item from cart', itemId);
         }
-    };
-    this.getTotal = function () {
+    },
+    getTotal: function () {
         var quantity = 0, price = 0;
-        for (var i = 0; i < that.items.length; i++) {
-            quantity += that.items[i].quantity;
-            price += parseInt(that.items[i].price, 10);
+        for (var i = 0; i < this.items.length; i++) {
+            quantity += this.items[i].quantity;
+            price += parseInt(this.items[i].price, 10);
         }
-        that.totalQuantity = quantity;
-        that.totalPrice = price;
+        this.totalQuantity = quantity;
+        this.totalPrice = price;
         return {'Total Quantity': quantity, 'Total Price': price};
-    };
-}
-
-var shoppingCart = new ShoppingCart();
+    }
+};
