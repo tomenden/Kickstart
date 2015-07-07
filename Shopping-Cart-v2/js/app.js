@@ -153,37 +153,35 @@ var shopWindow = {//TODO: consider changing all instances of shopWindow in this 
 
 /********Pagination****************************************************************************************************************************/
 
-function Pagination(currentPage, itemsPerPage) {
-    this.currentPage = currentPage || 1;
-    this.itemsPerPage = itemsPerPage || 5;
-    var that = this;
-    this.getCurrentPageItems = function () {
+var pagination = {
+    currentPage: 1,
+    itemsPerPage: 5,
+    getCurrentPageItems: function () {
         var ids = [];
-        for (var i = that.firstItemIndex; i < that.lastItemIndex; i++) {
+        for (var i = this.firstItemIndex; i < this.lastItemIndex; i++) {
             ids.push(inventory[i].id);
         }
         return ids;
-    };
-    this.update = function () {
-        that.numberOfPages = Math.ceil(inventory.length / that.itemsPerPage);
-        that.firstItemIndex = that.currentPage * that.itemsPerPage - that.itemsPerPage;
-        that.lastItemIndex = that.firstItemIndex + that.itemsPerPage;
-        if (that.lastItemIndex > inventory.length) {
-            that.lastItemIndex = inventory.length;
+    },
+    update: function () {
+        this.numberOfPages = Math.ceil(inventory.length / this.itemsPerPage);
+        this.firstItemIndex = this.currentPage * this.itemsPerPage - this.itemsPerPage;
+        this.lastItemIndex = this.firstItemIndex + this.itemsPerPage;
+        if (this.lastItemIndex > inventory.length) {
+            this.lastItemIndex = inventory.length;
         }
-        publish('updatedItemsOnPage', that.getCurrentPageItems());
-    };
-    this.goToPage = function (pageNumber) {
-        that.currentPage = pageNumber;
+        publish('updatedItemsOnPage', this.getCurrentPageItems());
+    },
+    goToPage: function (pageNumber) {
+        this.currentPage = pageNumber;
         publish('changePage');
-    };
-    this.setItemsPerPage = function (limit) {
-        that.itemsPerPage = limit;
+    },
+    setItemsPerPage: function (limit) {
+        this.itemsPerPage = limit;
         publish('setItemsPerPage');
-    };
-}
+    }
+};
 
-var pagination = new Pagination(1, 5);
 
 //Helper
 function itemIndexInCart(itemId, cart) {
