@@ -85,41 +85,6 @@ function createAddToCartButton(itemId) {
     return button;
 }
 
-function createItemRow(item, fields, context) {
-    var row = createDivRow();
-    for (var i = 0; i < fields.length; i++) {
-        var cell = createDivCell();
-        cell.dataset.id = item.id;
-        cell.dataset.field = fields[i];
-
-        if (fields[i] === 'image') {
-            var img = createImg({'src': item['image']});
-            cell.appendChild(img);
-        }
-
-        else if (fields[i] === 'quantity' && context === 'shopWindow') {
-            var quantityCellContent = createShopWindowQuantityCell(item.id, item.quantity);
-            cell.appendChild(quantityCellContent);
-        }
-
-        else if (fields[i] === 'action' && context === 'shopWindow') {
-            var addToCartButton = createAddToCartButton(item.id);
-            cell.appendChild(addToCartButton);
-        }
-
-        else if (fields[i] === 'action' && context === 'shoppingCart') {
-            var removeButton = createRemoveButton(item.id);
-            cell.appendChild(removeButton);
-        }
-
-        else if (item[fields[i]]) {
-            cell.textContent = item[fields[i]];
-        }
-        row.appendChild(cell);
-    }
-    return row;
-}
-
 function createHeadingRow(headers) {
     var heading = createDivHeading();
     for (var i = 0; i < headers.length; i++) {
@@ -129,35 +94,6 @@ function createHeadingRow(headers) {
     }
     return heading;
 }
-
-function drawTable(object, skinPart) {
-    var table = createDivTable();
-    var heading = createHeadingRow(object.headers);
-    var itemRow;
-    table.appendChild(heading);
-    for (var i = 0; i < object.items.length; i++) {
-        var item = object.items[i];
-        if (object instanceof ShopWindow) {
-            itemRow = createItemRow(item, object.headers, 'shopWindow');
-        }
-        if (object instanceof ShoppingCart) {
-            itemRow = createItemRow(item, object.headers, 'shoppingCart');
-        }
-        table.appendChild(itemRow);
-    }
-    skinPart.innerHTML = "";//reset TODO: remove these resets, change with something better
-    skinPart.appendChild(table);
-    return table;
-
-}
-
-function drawShoppingCart() {
-    return drawTable(shoppingCart, skinParts.shoppingCart);
-}
-
-//function drawShopWindow() {
-//    return drawTable(shopWindow, skinParts.shopWindow);
-//}
 
 function drawPagination() {//hard-coded to work on the pagination object. Consider changing it
     var ul = createUl({class: "page-list"});
@@ -238,5 +174,44 @@ function getShopCell(item, field) {
             cell.textContent = item[field];
             break;
     }
+    return cell;
+}
+
+function drawShoppingCart() {
+    var table = createDivTable(),
+        headers = ['name', 'quantity', 'price', 'action'],
+        heading = createHeadingRow(headers),
+        cartSkin = skinParts.shoppingCart,
+        items = shoppingCart.items;
+    table.appendChild(heading);
+    for (var i = 0; i < items.length; i++) {
+        var row = getCartRow(items[i], headers);
+        table.appendChild(row);
+    }
+
+    cartSkin.innerHTML = "";//reset
+    cartSkin.appendChild(table);
+}
+
+function getCartRow(item, fields) {
+    var row = createDivRow();
+    for (var i = 0; i < fields.length; i++) {
+        var cell = getCartCell(item, fields[i]);
+        row.appendChild(cell);
+    }
+    return row;
+}
+
+function getCartCell(item, field) {
+    var cell = createDivCell();
+    switch (field) {
+        case "action":
+            var removeButton = createRemoveButton(item.id);
+            cell.appendChild(removeButton);
+            break;
+        default:
+            cell.textContent = item[field];
+    }
+
     return cell;
 }
