@@ -95,7 +95,7 @@ function createHeadingRow(headers) {
     return heading;
 }
 
-function drawPagination() {//hard-coded to work on the pagination object. Consider changing it
+function drawPagination() {//hard-coded to work on the pagination object. Consider changing it TODO: move ul to html
     var ul = createUl({class: "page-list"});
     for (var i = 1; i <= pagination.numberOfPages; i++) {
         var li = createLi({class: "page-number", "data-number": i});
