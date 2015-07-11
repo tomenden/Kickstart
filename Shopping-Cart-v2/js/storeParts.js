@@ -25,7 +25,7 @@ function getItemObjectWithFields(itemId, headers) {
 var shopWindow = {//TODO: consider changing all instances of shopWindow in this function to this, and binding to shopWindow in the pubsub
     items: [],
     ids: [],
-    headers: ['name', 'description', 'image', 'price', 'quantity', 'action'],
+    headers: ['name', 'description', 'image', 'price', 'quantity', 'add'],
     update: function () {
         shopWindow.items = [];
         for (var i = 0; i < shopWindow.ids.length; i++) {
@@ -89,7 +89,7 @@ function itemIndexInCart(itemId, cart) {
 /********Shopping Cart****************************************************************************************************************************/
 var shoppingCart = {
     items: [],
-    headers: ['name', 'quantity', 'price', 'action'],//TODO: Remove from here, belongs in drawer
+    headers: ['name', 'added', 'price', 'remove'],//TODO: Remove from here, belongs in drawer
     addItemToCart: function (item) {
         var indexInCart = itemIndexInCart(item.id, this);
         if (indexInCart > -1) {

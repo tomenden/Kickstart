@@ -4,12 +4,12 @@
 
 /********Helpers****************************************************************************************************************************/
 
-function getEmptyFragment() {
+function createEmptyFragment() {
     return document.createDocumentFragment();
 }
 
 function getFragmentWithChildren(childrenArray) {
-    var fragment = getEmptyFragment();
+    var fragment = createEmptyFragment();
     for (var i = 0; i < childrenArray.length; i++) {
         fragment.appendChild(childrenArray[i]);
     }
@@ -215,3 +215,96 @@ function getCartCell(item, field) {
 
     return cell;
 }
+
+function drawTable(data, target) {
+    var table = createDivTable();
+    var heading = createHeadingRow(data.headers);
+    var body = createBody(data.items, data.headers);
+    var fullTable = createFamily(table, [heading, body]);
+    target.appendChild(fullTable);
+
+
+}
+
+var createBody = function (bodyData, headers) {
+    var bodyFragment = createEmptyFragment();
+    for (var i = 0; i < bodyData.length; i++) {
+        var row = createTableRow(bodyData[i], headers);
+        bodyFragment.appendChild(row);
+    }
+    return bodyFragment;
+};
+
+
+var createTableRow = function (rowData, types) {
+    var row = createDivRow();
+    for (var i = 0; i < types.length; i += 1) {
+        var cell = createRowCell(rowData[types[i]], types[i]);
+        row.appendChild(cell);
+    }
+    return row;
+};
+
+
+var createRowCell = function (cellData, type) {
+    console.log(type);
+    var cell = createDivCell();
+    var cellContent = cellContentCreators[type](cellData);
+    cell.appendChild(cellContent);
+    return cell;
+};
+
+var cellContentCreators = {
+    'name': createTextCellContent,
+    'description': createTextCellContent,
+    'price': createTextCellContent,
+    'added': createTextCellContent,
+    'quantity': createQuantityCellContent,
+    'add': createAddCellContent,
+    'remove': createRemoveCellContent,
+    'image': createImageCellContent,
+
+};
+
+/*
+ Helper
+ */
+function createFamily(parent, children) {
+    for (var i = 0; j = children.length, i < j; i++) {
+        parent.appendChild(children[i]);
+    }
+    return parent;
+}
+
+function createTextCellContent(data) {
+    var p = document.createElement('p');
+    p.textContent = data;
+    return p;
+}
+
+function createQuantityCellContent(data) {
+    //TODO attach event listeners to plus/minus
+    var plus = createSpan({class: 'plus'});
+    var minus = createSpan({class: 'minus'});
+    var input = createInputQuantity(data);
+    var cellParts = [plus, input, minus];
+    return getFragmentWithChildren(cellParts);
+}
+
+function createAddCellContent() {
+    var button = createButton();
+    button.textContent = "Add";
+    return button;
+}
+
+function createRemoveCellContent() {
+    var button = createButton();
+    button.textContent = "Remove";
+    return button;
+}
+
+function createImageCellContent(data) {
+    return createImg({'src': data});
+}
+
+

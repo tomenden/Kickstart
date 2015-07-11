@@ -1,0 +1,80 @@
+.Table {
+    display: table;
+}
+
+.Title {
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+}
+
+div.table-body {
+    display: table-row-group;
+}
+
+.Row {
+    display: table-row;
+}
+
+.Cell {
+    display: table-cell;
+    border: solid;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+/*span.plus:before {*/
+    /*content: '\002B';*/
+/*}*/
+
+/*span.minus:before {*/
+    /*content: '\2212';*/
+/*}*/
+
+.mainTable {
+    width: 50%;
+    margin: 0 auto;
+}
+
+div.Row:nth-of-type(2n) {
+    background-color: rgba(211,211,211, 0.5);
+}
+
+ul.page-list {
+    list-style-type: none;
+    text-align: center;
+}
+
+li.page-number {
+    display: inline-block;
+    background-color: rgba(211, 211, 211, 0.5);
+    border: 0.1rem solid;
+    padding: 0.4rem;
+    cursor: pointer;
+}
+
+li.page-number:not(.current-page):hover {
+    background-color: rgba(211, 211, 211, 0.2);
+}
+
+li.current-page {
+    background: rgba(0, 255, 0, 0.2);
+    cursor: default;
+}
+
+input.amount {
+    width: 2rem;
+}
+
+div.cart > div.table-footer {
+    font-weight: bold;
+}
