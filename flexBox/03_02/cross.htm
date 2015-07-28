@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>cross axis alignment</title>
+    <link href="_css/base.css" rel="stylesheet" type="text/css" media="screen">
+    <style>
+        body {
+            width: 80%;
+            margin: 0 auto;
+            padding: 2%;
+            line-height: 1.6;
+        }
+
+        .flex-container {
+            margin: 1em 0;
+            border: 1px solid #333;
+            display: flex;
+            /*justify-content: space-around;*/
+            flex-direction: row;
+            /*height: 500px;*/
+            /*align-items: baseline;*/
+        }
+
+        .three {
+            /*align-self: flex-start;*/
+            /*width: 250px;*/
+            /*padding: 0;*/
+        }
+
+        .four {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Flexbox First Look</h1>
+
+    <p>Welcome to Flexbox First Look! The <a href="http://www.w3.org/TR/css3-flexbox/" title="Flexbox">Flexible Layout
+        Box Model</a> (or <strong>Flexbox</strong> as it is more commonly known) is <em>just one of the many</em> CSS
+        specifications under development by the W3C to address the current shortcomings in layout capabilities. Flexbox
+        is well suited for arranging and aligning elements along a single axis, and creating flexible elements within a
+        defined container. It's not particularly good at handling complex layouts, or controlling elements along
+        multiple axes. As such, it's likely that Flexbox will be used in conjunction with other layout models such as <a
+                href="http://www.w3.org/TR/css3-grid-layout/" title="CSS Grid Layout">CSS Grid Layout</a>. While layout
+        models like Grid Layout will handle overall page organization, Flexbox will be used to control the layout of
+        discreet regions or UI components.</p>
+</header>
+<article>
+    <h2>Controlling cross axis alignment</h2>
+
+    <p>Cross-axis alignment is controlled with the <strong>align-items</strong> and <strong>align-self</strong>
+        properties. Align-items will align all flex items within a container while align-self can be applied to
+        individual items.</p>
+    <section class="flex-container">
+        <div class="box">
+            <h3>one</h3>
+        </div>
+        <div class="box">
+            <h3>two</h3>
+        </div>
+        <div class="box three">
+            <h3>three</h3>
+        </div>
+        <div class="box four">
+            <h3>four</h3>
+        </div>
+    </section>
+</article>
+</body>
+</html>
